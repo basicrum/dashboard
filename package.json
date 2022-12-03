@@ -1,0 +1,15 @@
+{
+  "name": "basicrum-dashboard",
+  "version": "1.0.0",
+  "description": "Build scripts and source files used to build customized Grafana Docker image.",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^8.0.3",
+    "mustache": "^4.2.0"
+  }
+}

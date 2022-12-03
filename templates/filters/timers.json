@@ -1,0 +1,38 @@
+{
+    "current": {
+        "selected": true,
+        "text": "First Byte",
+        "value": "first_byte_duration"
+    },
+    "hide": 1,
+    "includeAll": false,
+    "label": "Timers",
+    "multi": false,
+    "name": "perf_timer",
+    "options": [
+        {
+            "selected": false,
+            "text": "Firtst  Paint",
+            "value": "first_paint"
+        },
+        {
+            "selected": true,
+            "text": "First Byte",
+            "value": "first_byte_duration"
+        },
+        {
+            "selected": false,
+            "text": "Dns",
+            "value": "dns_duration"
+        },
+        {
+            "selected": false,
+            "text": "Connect",
+            "value": "connect_duration"
+        }
+    ],
+    "query": "Firtst  Paint : first_paint, First Byte : first_byte_duration, Dns : dns_duration, Connect : connect_duration",
+    "queryValue": "",
+    "skipUrlSync": false,
+    "type": "custom"
+}

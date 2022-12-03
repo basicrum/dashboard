@@ -1,0 +1,48 @@
+{
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "BRUMMUCSTARBUCS"
+    },
+    "gridPos": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+    },
+    "id": "{{PLACEHOLDER}}",
+    "options": {
+        "data": "",
+        "layout": "{{PLACEHOLDER}}",
+        "onclick": "{{PLACEHOLDER}}",
+        "script": "{{PLACEHOLDER}}"
+    },
+    "targets": [
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "BRUMMUCSTARBUCS"
+            },
+            "dateColDataType": "",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "table",
+            "formattedQuery": "",
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "A",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        }
+    ],
+    "title": "{{PLACEHOLDER}}",
+    "transformations": [],
+    "transparent": true,
+    "type": "ae3e-plotly-panel"
+}

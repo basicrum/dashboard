@@ -1,0 +1,48 @@
+{
+    "allValue": "'mobile', 'desktop', 'tablet', 'bot'",
+    "current": {
+        "selected": true,
+        "text": [
+            "All"
+        ],
+        "value": [
+            "$__all"
+        ]
+    },
+    "hide": 1,
+    "includeAll": true,
+    "label": "Device",
+    "multi": true,
+    "name": "device_type",
+    "options": [
+        {
+            "selected": true,
+            "text": "All",
+            "value": "$__all"
+        },
+        {
+            "selected": false,
+            "text": "Mobile",
+            "value": "mobile"
+        },
+        {
+            "selected": false,
+            "text": "Desktop",
+            "value": "desktop"
+        },
+        {
+            "selected": false,
+            "text": "Tablet",
+            "value": "tablet"
+        },
+        {
+            "selected": false,
+            "text": "Bot",
+            "value": "bot"
+        }
+    ],
+    "query": "Mobile : mobile, Desktop : desktop, Tablet : tablet, Bot : bot",
+    "queryValue": "",
+    "skipUrlSync": false,
+    "type": "custom"
+}

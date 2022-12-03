@@ -1,0 +1,15 @@
+apiVersion: 1
+
+datasources:
+  - name: Altinity plugin for ClickHouse
+    uid: BRUMMUCSTARBUCS
+    type: vertamedia-clickhouse-datasource
+    url: http://basicrum_clickhouse_server:8123
+    basicAuth: true
+    basicAuthUser: basicrumreader
+    jsonData:
+      tlsSkipVerify: false
+    secureJsonData:
+      basicAuthPassword: "testpassword"
+    secureJsonFields:
+      basicAuthPassword: false

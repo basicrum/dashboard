@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:   
+  basicrum_grafana_build:
+    build: .
+    ports:
+      - 3200:3000
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+
+  basicrum_clickhouse_server_build:
+    image: clickhouse/clickhouse-server:22.8
+    volumes:
+      - ./clickhouse/data:/var/lib/clickhouse
+      - ./clickhouse/users.d/:/etc/clickhouse-server/users.d/
+      - ./clickhouse/start-data/:/start-data/
+
+    ulimits:
+      nproc: 65535
+      nofile:
+       soft: 262144
+       hard: 262144

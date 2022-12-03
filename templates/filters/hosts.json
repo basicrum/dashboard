@@ -1,0 +1,53 @@
+{
+    "allValue": "",
+    "current": {
+        "selected": true,
+        "text": [
+            "fabrikazahranaitanci.com"
+        ],
+        "value": [
+            "fabrikazahranaitanci.com"
+        ]
+    },
+    "hide": 1,
+    "includeAll": true,
+    "label": "Hostname",
+    "multi": true,
+    "name": "hostname",
+    "options": [
+        {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+        },
+        {
+            "selected": false,
+            "text": "iventishirts.com",
+            "value": "iventishirts.com"
+        },
+        {
+            "selected": true,
+            "text": "fabrikazahranaitanci.com",
+            "value": "fabrikazahranaitanci.com"
+        },
+        {
+            "selected": false,
+            "text": "soccerking-store.com",
+            "value": "soccerking-store.com"
+        },
+        {
+            "selected": false,
+            "text": "skyrecord.eu",
+            "value": "skyrecord.eu"
+        },
+        {
+            "selected": false,
+            "text": "medilinkbg.com",
+            "value": "medilinkbg.com"
+        }
+    ],
+    "query": "iventishirts.com : iventishirts.com, fabrikazahranaitanci.com : fabrikazahranaitanci.com, soccerking-store.com : soccerking-store.com, skyrecord.eu : skyrecord.eu, medilinkbg.com : medilinkbg.com",
+    "queryValue": "",
+    "skipUrlSync": false,
+    "type": "custom"
+}
