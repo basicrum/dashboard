@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "glob": "^8.0.3",
-    "mustache": "^4.2.0"
+    "glob": "^8.0.3"
   }
 }

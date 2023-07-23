@@ -22,31 +22,16 @@
         },
         {
             "selected": false,
-            "text": "iventishirts.com",
-            "value": "iventishirts.com"
-        },
-        {
-            "selected": true,
-            "text": "fabrikazahranaitanci.com",
-            "value": "fabrikazahranaitanci.com"
+            "text": "example1.com",
+            "value": "example1.com"
         },
         {
             "selected": false,
-            "text": "soccerking-store.com",
-            "value": "soccerking-store.com"
-        },
-        {
-            "selected": false,
-            "text": "skyrecord.eu",
-            "value": "skyrecord.eu"
-        },
-        {
-            "selected": false,
-            "text": "medilinkbg.com",
-            "value": "medilinkbg.com"
+            "text": "example1.com",
+            "value": "example1.com"
         }
     ],
-    "query": "iventishirts.com : iventishirts.com, fabrikazahranaitanci.com : fabrikazahranaitanci.com, soccerking-store.com : soccerking-store.com, skyrecord.eu : skyrecord.eu, medilinkbg.com : medilinkbg.com",
+    "query": "example1.com : example1.com, example2.com : example2.com",
     "queryValue": "",
     "skipUrlSync": false,
     "type": "custom"

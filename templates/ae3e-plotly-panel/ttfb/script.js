@@ -4,8 +4,8 @@ var yValue = [];
 var dataFound = true;
 
 try {
-    var xValue = data.series[0].fields[0].values.buffer;
-    var yValue = data.series[0].fields[1].values.buffer;
+    var xValue = data.series[0].fields[0].values;
+    var yValue = data.series[0].fields[1].values;
 }
 catch (e) {
     dataFound = false

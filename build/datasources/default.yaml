@@ -4,7 +4,7 @@ datasources:
   - name: Altinity plugin for ClickHouse
     uid: BRUMMUCSTARBUCS
     type: vertamedia-clickhouse-datasource
-    url: http://basicrum_clickhouse_server:8123
+    url: $CLICKHOUSE_CONNECTION_URL
     basicAuth: true
     basicAuthUser: $CLICKHOUSE_USER
     jsonData:

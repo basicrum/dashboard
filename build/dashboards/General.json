@@ -99,7 +99,7 @@
                     }
                 },
                 "onclick": "",
-                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values.buffer;\n    var yValue = data.series[0].fields[1].values.buffer;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 800) {\n            return '#0cce6a'\n        }\n\n        if (v > 800 && v <= 1800) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
+                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values;\n    var yValue = data.series[0].fields[1].values;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 800) {\n            return '#0cce6a'\n        }\n\n        if (v > 800 && v <= 1800) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
             },
             "targets": [
                 {
@@ -190,7 +190,7 @@
                     }
                 },
                 "onclick": "",
-                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values.buffer;\n    var yValue = data.series[0].fields[1].values.buffer;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 1800) {\n            return '#0cce6a'\n        }\n\n        if (v > 1800 && v <= 3000) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
+                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values;\n    var yValue = data.series[0].fields[1].values;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 1800) {\n            return '#0cce6a'\n        }\n\n        if (v > 1800 && v <= 3000) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
             },
             "targets": [
                 {
@@ -281,7 +281,7 @@
                     }
                 },
                 "onclick": "",
-                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values.buffer;\n    var yValue = data.series[0].fields[1].values.buffer;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 2500) {\n            return '#0cce6a'\n        }\n\n        if (v > 2500 && v <= 4000) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
+                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values;\n    var yValue = data.series[0].fields[1].values;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 2500) {\n            return '#0cce6a'\n        }\n\n        if (v > 2500 && v <= 4000) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
             },
             "targets": [
                 {
@@ -376,7 +376,7 @@
                     }
                 },
                 "onclick": "",
-                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values.buffer;\n    var yValue = data.series[0].fields[1].values.buffer;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 0.1) {\n            return '#0cce6a'\n        }\n\n        if (v > 0.1 && v <= 0.25) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
+                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values;\n    var yValue = data.series[0].fields[1].values;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= 0.1) {\n            return '#0cce6a'\n        }\n\n        if (v > 0.1 && v <= 0.25) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
             },
             "targets": [
                 {
@@ -439,31 +439,16 @@
                     },
                     {
                         "selected": false,
-                        "text": "iventishirts.com",
-                        "value": "iventishirts.com"
-                    },
-                    {
-                        "selected": true,
-                        "text": "fabrikazahranaitanci.com",
-                        "value": "fabrikazahranaitanci.com"
+                        "text": "example1.com",
+                        "value": "example1.com"
                     },
                     {
                         "selected": false,
-                        "text": "soccerking-store.com",
-                        "value": "soccerking-store.com"
-                    },
-                    {
-                        "selected": false,
-                        "text": "skyrecord.eu",
-                        "value": "skyrecord.eu"
-                    },
-                    {
-                        "selected": false,
-                        "text": "medilinkbg.com",
-                        "value": "medilinkbg.com"
+                        "text": "example1.com",
+                        "value": "example1.com"
                     }
                 ],
-                "query": "iventishirts.com : iventishirts.com, fabrikazahranaitanci.com : fabrikazahranaitanci.com, soccerking-store.com : soccerking-store.com, skyrecord.eu : skyrecord.eu, medilinkbg.com : medilinkbg.com",
+                "query": "example1.com : example1.com, example2.com : example2.com",
                 "queryValue": "",
                 "skipUrlSync": false,
                 "type": "custom"
@@ -568,6 +553,7 @@
     "timepicker": {},
     "timezone": "",
     "title": "Core Web Vitals +",
+    "uid": "basicrum-general",
     "version": 0,
     "weekStart": ""
 }

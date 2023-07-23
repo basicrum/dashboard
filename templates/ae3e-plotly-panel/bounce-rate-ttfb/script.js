@@ -13,11 +13,11 @@ while (current < 10000) {
 }
 
 
-var xBouncedValue = data.series[0].fields[0].values.buffer;
-var yBouncedValue = data.series[0].fields[1].values.buffer;
+var xBouncedValue = data.series[0].fields[0].values;
+var yBouncedValue = data.series[0].fields[1].values;
 
-var xAllValue = data.series[1].fields[0].values.buffer;
-var yAllValue = data.series[1].fields[1].values.buffer;
+var xAllValue = data.series[1].fields[0].values;
+var yAllValue = data.series[1].fields[1].values;
 
 // Fill the bounces
 for (var i = 0; i < xBouncedValue.length; i++) {

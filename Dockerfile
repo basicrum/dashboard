@@ -1,4 +1,4 @@
-FROM grafana/grafana:9.3.1
+FROM grafana/grafana:10.0.2
 
 # Addeding the necessary Grafana plugins
 ADD artefacts/plugins/ae3e-plotly-panel-0.5.0.tar.gz /var/lib/grafana/plugins/ae3e-plotly-panel
