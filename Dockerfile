@@ -1,9 +1,5 @@
 FROM grafana/grafana:10.0.2
 
-# Addeding the necessary Grafana plugins
-ADD artefacts/plugins/ae3e-plotly-panel-0.5.0.tar.gz /var/lib/grafana/plugins/ae3e-plotly-panel
-ADD artefacts/plugins/vertamedia-clickhouse-datasource-2.5.1.tar.gz /var/lib/grafana/plugins/vertamedia-clickhouse-datasource
-
 # Adding datasources
 ADD build/datasources /etc/grafana/provisioning/datasources
 
@@ -32,3 +28,6 @@ RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|,{value:1,l
 RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|utm_source=grafana_gettingstarted|utm_source=basicrum_gettingstarted|g' {} \;
 
 #############################################################
+
+RUN /bin/bash -c 'grafana cli plugins install ae3e-plotly-panel 0.5.0'
+RUN /bin/bash -c 'grafana cli plugins install vertamedia-clickhouse-datasource 2.5.1'
