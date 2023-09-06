@@ -3,10 +3,10 @@
     "current": {
         "selected": true,
         "text": [
-            "fabrikazahranaitanci.com"
+            "example1.com"
         ],
         "value": [
-            "fabrikazahranaitanci.com"
+            "example1.com"
         ]
     },
     "hide": 1,
@@ -27,8 +27,8 @@
         },
         {
             "selected": false,
-            "text": "example1.com",
-            "value": "example1.com"
+            "text": "example2.com",
+            "value": "example2.com"
         }
     ],
     "query": "example1.com : example1.com, example2.com : example2.com",
