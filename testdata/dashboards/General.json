@@ -129,8 +129,7 @@
             "title": "TTFB",
             "transformations": [],
             "transparent": true,
-            "type": "ae3e-plotly-panel",
-            "plugin": "ae3e-plotly-panel"
+            "type": "ae3e-plotly-panel"
         },
         {
             "datasource": {
@@ -221,8 +220,7 @@
             "title": "FCP",
             "transformations": [],
             "transparent": true,
-            "type": "ae3e-plotly-panel",
-            "plugin": "ae3e-plotly-panel"
+            "type": "ae3e-plotly-panel"
         },
         {
             "datasource": {
@@ -313,8 +311,7 @@
             "title": "LCP",
             "transformations": [],
             "transparent": true,
-            "type": "ae3e-plotly-panel",
-            "plugin": "ae3e-plotly-panel"
+            "type": "ae3e-plotly-panel"
         },
         {
             "datasource": {
@@ -409,8 +406,7 @@
             "title": "CLS",
             "transformations": [],
             "transparent": true,
-            "type": "ae3e-plotly-panel",
-            "plugin": "ae3e-plotly-panel"
+            "type": "ae3e-plotly-panel"
         }
     ],
     "refresh": false,

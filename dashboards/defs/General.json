@@ -1,54 +1,36 @@
 {
     "title": "Core Web Vitals +",
-    "rows": {
-        "1": [
+    "filters": ["hosts", "buckets"],
+    "rows": [
+        [
             {
-                "id": 1,
-                "h": 1,
-                "w": 24,
                 "title": "Chrome - All pages",
                 "type": "row"
             }
         ],
-        "2": [
+        [
             {
-                "id": 2,
-                "h": 8,
-                "w": 12,
                 "title": "TTFB",
                 "type": "panel",
-                "plugin": "ae3e-plotly-panel",
                 "source": "ttfb"
             },
             {
-                "id": 3,
-                "h": 8,
-                "w": 12,
                 "title": "FCP",
                 "type": "panel",
-                "plugin": "ae3e-plotly-panel",
                 "source": "fcp"
             }
         ],
-        "3": [
+        [
             {
-                "id": 4,
-                "h": 8,
-                "w": 12,
                 "title": "LCP",
                 "type": "panel",
-                "plugin": "ae3e-plotly-panel",
                 "source": "lcp"
             },
             {
-                "id": 5,
-                "h": 8,
-                "w": 12,
                 "title": "CLS",
                 "type": "panel",
-                "plugin": "ae3e-plotly-panel",
                 "source": "cls"
             }
         ]
-    }
+    ]
 }
