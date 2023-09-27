@@ -1,16 +1,16 @@
 SELECT
-    intDiv(largest_contentful_paint, $bucket_size) * $bucket_size as largest_contentful_paint_value,
+    intDiv($$column_name, $bucket_size) * $bucket_size as value,
     sum(toUInt64(1)) as count
-
+    
 FROM $table
 
 WHERE
     $timeFilter
-    AND largest_contentful_paint > 100
-    AND largest_contentful_paint < 10000
+    AND $$column_name > 0
+    AND $$column_name < 10000
     AND event_type = 'visit_page'
+    AND browser_name = '$$browser_name'
     $conditionalTest(AND hostname in($hostname), $hostname)
-    $conditionalTest(AND device_type in($device_type), $device_type)
 
-GROUP BY largest_contentful_paint_value
-ORDER BY largest_contentful_paint_value
+GROUP BY value
+ORDER BY value

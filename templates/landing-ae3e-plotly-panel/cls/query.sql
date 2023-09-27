@@ -8,6 +8,7 @@ WHERE
     $timeFilter
     AND event_type = 'visit_page'
     AND $$column_name IS NOT NULL
+    AND session_length = 1
     AND browser_name = '$$browser_name'
     $conditionalTest(AND hostname in($hostname), $hostname)
 

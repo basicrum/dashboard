@@ -4,8 +4,8 @@ var yValue = [];
 var dataFound = true;
 
 try {
-    var xValue = data.series[0].fields[0].values;
-    var yValue = data.series[0].fields[1].values;
+    var xValue = data.series[0].fields[0].values.buffer;
+    var yValue = data.series[0].fields[1].values.buffer;
 }
 catch (e) {
     dataFound = false
@@ -30,11 +30,11 @@ if (dataFound) {
     };
 
     trace1.marker.color = trace1.x.map(function (v) {
-        if (v <= 1800) {
+        if (v <= $$needs_improvement_min_value) {
             return '#0cce6a'
         }
 
-        if (v > 1800 && v <= 3000) {
+        if (v > $$needs_improvement_min_value && v <= $$needs_improvement_max_value) {
             return '#ffa400'
         }
 

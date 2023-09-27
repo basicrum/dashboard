@@ -1,35 +1,393 @@
 {
-    "title": "Core Web Vitals +",
+    "title": "Core Web Vitals",
     "filters": ["hosts", "buckets"],
     "rows": [
         [
             {
-                "title": "Chrome - All pages",
+                "title": "Mobile",
                 "type": "row"
             }
         ],
         [
             {
-                "title": "TTFB",
-                "type": "panel",
-                "source": "ttfb"
+                "title": "LCP",
+                "type": "barchart",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
             },
             {
+                "title": "CLS",
+                "type": "barchart",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                }
+            },
+            {
+                "title": "TTFB",
+                "type": "barchart",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            }
+        ],
+        [
+            {
                 "title": "FCP",
-                "type": "panel",
-                "source": "fcp"
+                "type": "barchart",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            },
+            {
+                "title": "FID",
+                "type": "barchart",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
+            },
+            {
+                "type": "none"
+            }
+        ],
+        [
+            {
+                "title": "Desktop",
+                "type": "row"
             }
         ],
         [
             {
                 "title": "LCP",
-                "type": "panel",
-                "source": "lcp"
+                "type": "barchart",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
             },
             {
                 "title": "CLS",
-                "type": "panel",
-                "source": "cls"
+                "type": "barchart",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                }
+            },
+            {
+                "title": "TTFB",
+                "type": "barchart",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            }
+        ],
+        [
+            {
+                "title": "FCP",
+                "type": "barchart",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            },
+            {
+                "title": "FID",
+                "type": "barchart",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
+            },
+            {
+                "type": "none"
+            }
+        ],
+        [
+            {
+                "title": "CWV - Chrome - All pages",
+                "type": "row"
+            }
+        ],
+        [
+            {
+                "title": "TTFB - Desktop",
+                "type": "ae3e-plotly-panel",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            },
+            {
+                "title": "TTFB - Mobile",
+                "type": "ae3e-plotly-panel",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            }
+        ],
+        [
+            {
+                "title": "LCP - Desktop",
+                "type": "ae3e-plotly-panel",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
+            },
+            {
+                "title": "LCP - Mobile",
+                "type": "ae3e-plotly-panel",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
+            }
+        ],
+        [
+            {
+                "title": "FCP - Desktop",
+                "type": "ae3e-plotly-panel",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            },
+            {
+                "title": "FCP - Mobile",
+                "type": "ae3e-plotly-panel",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            }
+        ],
+        [
+            {
+                "title": "FID - Desktop",
+                "type": "ae3e-plotly-panel",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
+            },    
+            {
+                "title": "FID - Mobile",
+                "type": "ae3e-plotly-panel",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
+            }
+        ],
+        [
+            {
+                "title": "CLS - Desktop",
+                "type": "ae3e-plotly-panel",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                    }
+            },    
+            {
+                "title": "CLS - Mobile",
+                "type": "ae3e-plotly-panel",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                    }
+            }
+        ],
+        [
+            {
+                "title": "CWV - Chrome - Landing pages",
+                "type": "row"
+            }
+        ],
+        [
+            {
+                "title": "TTFB - Desktop",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            },
+            {
+                "title": "TTFB - Mobile",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "ttfb",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_byte_duration",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            }
+        ],
+        [
+            {
+                "title": "LCP - Desktop",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
+            },
+            {
+                "title": "LCP - Mobile",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "lcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "largest_contentful_paint",
+                    "needs_improvement_min_value": 2500,
+                    "needs_improvement_max_value": 4000
+                }
+            }
+        ],
+        [
+            {
+                "title": "FCP - Desktop",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            },
+            {
+                "title": "FCP - Mobile",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "fcp",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_contentful_paint",
+                    "needs_improvement_min_value": 1800,
+                    "needs_improvement_max_value": 3000
+                }
+            }
+        ],
+        [
+            {
+                "title": "CLS - Desktop",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                    }
+            },    
+            {
+                "title": "CLS - Mobile",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "cls",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "cumulative_layout_shift",
+                    "needs_improvement_min_value": 0.1,
+                    "needs_improvement_max_value": 0.25
+                    }
+            }
+        ],
+        [
+            {
+                "title": "FID - Desktop",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
+            },    
+            {
+                "title": "FID - Mobile",
+                "type": "landing-ae3e-plotly-panel",
+                "source": "fid",
+                "variables": {
+                    "browser_name": "Chrome Mobile",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 100,
+                    "needs_improvement_max_value": 300
+                }
             }
         ]
     ]
