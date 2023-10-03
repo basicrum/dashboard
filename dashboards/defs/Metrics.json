@@ -1,0 +1,24 @@
+{
+    "uid": "basicrum-metrics-explorer",
+    "title": "Metrics Explorer",
+    "filters": ["hosts", "metrics", "buckets", "devices"],
+    "rows": [
+        [
+            {
+                "title": "Metric",
+                "type": "ae3e-plotly-panel",
+                "source": "metric",
+                "h": 9,
+                "variables": {
+                    "browser_name": "Chrome",
+                    "column_name": "first_input_delay",
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
+            },    
+            {
+                "type": "none"
+            }
+        ]
+    ]
+}

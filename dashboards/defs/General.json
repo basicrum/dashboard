@@ -1,4 +1,5 @@
 {
+    "uid": "basicrum-general1",
     "title": "Core Web Vitals",
     "filters": ["hosts", "buckets"],
     "rows": [
