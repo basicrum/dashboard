@@ -10,14 +10,18 @@
                 "source": "metric",
                 "h": 9,
                 "variables": {
-                    "browser_name": "Chrome",
-                    "column_name": "first_input_delay",
                     "needs_improvement_min_value": 800,
                     "needs_improvement_max_value": 1800
                 }
-            },    
+            },
             {
-                "type": "none"
+                "title": "75th percentile / day",
+                "type": "timeseries",
+                "source": "metric",
+                "variables": {
+                    "needs_improvement_min_value": 800,
+                    "needs_improvement_max_value": 1800
+                }
             }
         ]
     ]
