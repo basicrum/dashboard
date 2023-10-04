@@ -1,0 +1,150 @@
+{
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "BRUMMUCSTARBUCS"
+    },
+    "fieldConfig": {
+        "defaults": {
+            "color": {
+                "mode": "palette-classic"
+            },
+            "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                    "type": "linear"
+                },
+                "thresholdsStyle": {
+                    "mode": "off"
+                }
+            },
+            "mappings": [],
+            "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                    {
+                        "color": "green",
+                        "value": null
+                    },
+                    {
+                        "color": "red",
+                        "value": 80
+                    }
+                ]
+            }
+        },
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "poor"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-red",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "good"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-green",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "needs_improvement"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-yellow",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "t"
+                },
+                "properties": [
+                    {
+                        "id": "unit",
+                        "value": "dateTimeAsSystem"
+                    }
+                ]
+            }
+        ]
+    },
+    "gridPos": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+    },
+    "id": "{{PLACEHOLDER}}",
+    "options": {
+        "orientation": "auto",
+        "config": "",
+        "data": "",
+        "layout": "{{PLACEHOLDER}}",
+        "onclick": "{{PLACEHOLDER}}",
+        "script": "{{PLACEHOLDER}}"
+    },
+    "targets": [
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "BRUMMUCSTARBUCS"
+            },
+            "dateColDataType": "event_date",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "table",
+            "formattedQuery": "",
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "A",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        }
+    ],
+    "title": "{{PLACEHOLDER}}",
+    "transformations": [],
+    "transparent": true,
+    "type": "ae3e-plotly-panel"
+}

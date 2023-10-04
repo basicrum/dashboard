@@ -17,12 +17,23 @@
             {
                 "title": "75th percentile / day",
                 "type": "timeseries",
-                "source": "metric",
-                "variables": {
-                    "needs_improvement_min_value": 800,
-                    "needs_improvement_max_value": 1800
-                }
+                "source": "metric"
             }
+        ],
+        [
+            {
+                "title": "Bounce rate vs Metric",
+                "type": "bouncerate",
+                "source": "metric",
+                "h": 10
+            },
+            {
+                "title": "75th percentile - 100 slowest Landing Pages",
+                "type": "table",
+                "source": "metric",
+                "h": 10,
+                "y": 8
+            }                        
         ]
     ]
 }
