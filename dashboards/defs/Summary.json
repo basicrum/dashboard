@@ -1,0 +1,42 @@
+{
+    "uid": "basicrum-metrics-summary",
+    "title": "Summary",
+    "filters": ["hosts"],
+    "rows": [
+        [
+            {
+                "title": "Impressions by Country",
+                "type": "geomap",
+                "source": "impressions",
+                "h": 16,
+                "w": 12
+            },
+            {
+                "title": "Screen Widths",
+                "type": "ae3e-plotly-panel",
+                "source": "screen-width",
+                "w": 12
+            },
+            {
+                "title": "Visits per day",
+                "type": "timeseries-visits",
+                "source": "visits-per-day",
+                "w": 12,
+                "x": 12,
+                "y": 8
+            }
+        ],
+        [
+            {
+                "title": "Device distribution",
+                "type": "barchart",
+                "source": "device-distribution"
+            },
+            {
+                "title": "Device distribution",
+                "type": "none",
+                "source": "device-distribution"
+            }
+        ]
+    ]
+}

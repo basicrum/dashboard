@@ -25,3 +25,7 @@ test('build General dashboard should be as expected', () => {
 test('build Metrics dashboard should be as expected', () => {
     runTest('Metrics')
 });
+
+test('build Summary dashboard should be as expected', () => {
+    runTest('Summary')
+});

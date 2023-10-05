@@ -16,7 +16,7 @@
             },
             {
                 "title": "75th percentile / day",
-                "type": "timeseries",
+                "type": "timeseries-metric",
                 "source": "metric"
             }
         ],

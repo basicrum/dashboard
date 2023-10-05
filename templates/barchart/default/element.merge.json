@@ -1,0 +1,63 @@
+{
+    "fieldConfig": {
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "poor"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-red",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "good"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-green",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "needs_improvement"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "semi-dark-yellow",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "t"
+                },
+                "properties": [
+                    {
+                        "id": "unit",
+                        "value": "dateTimeAsSystem"
+                    }
+                ]
+            }
+        ]
+    }
+}

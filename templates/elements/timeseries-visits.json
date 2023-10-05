@@ -13,16 +13,26 @@
                 "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
-                "fillOpacity": 80,
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
                     "legend": false,
                     "tooltip": false,
                     "viz": false
                 },
+                "lineInterpolation": "linear",
                 "lineWidth": 1,
+                "pointSize": 5,
                 "scaleDistribution": {
                     "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                    "group": "A",
+                    "mode": "none"
                 },
                 "thresholdsStyle": {
                     "mode": "off"
@@ -41,68 +51,9 @@
                         "value": 80
                     }
                 ]
-            },
-            "unit": "short"
-        },
-        "overrides": [
-            {
-                "matcher": {
-                    "id": "byName",
-                    "options": "poor"
-                },
-                "properties": [
-                    {
-                        "id": "color",
-                        "value": {
-                            "fixedColor": "semi-dark-red",
-                            "mode": "fixed"
-                        }
-                    }
-                ]
-            },
-            {
-                "matcher": {
-                    "id": "byName",
-                    "options": "good"
-                },
-                "properties": [
-                    {
-                        "id": "color",
-                        "value": {
-                            "fixedColor": "semi-dark-green",
-                            "mode": "fixed"
-                        }
-                    }
-                ]
-            },
-            {
-                "matcher": {
-                    "id": "byName",
-                    "options": "needs_improvement"
-                },
-                "properties": [
-                    {
-                        "id": "color",
-                        "value": {
-                            "fixedColor": "semi-dark-yellow",
-                            "mode": "fixed"
-                        }
-                    }
-                ]
-            },
-            {
-                "matcher": {
-                    "id": "byName",
-                    "options": "t"
-                },
-                "properties": [
-                    {
-                        "id": "unit",
-                        "value": "dateTimeAsSystem"
-                    }
-                ]
             }
-        ]
+        },
+        "overrides": []
     },
     "gridPos": {
         "h": 0,
@@ -112,28 +63,16 @@
     },
     "id": "{{PLACEHOLDER}}",
     "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "groupWidth": 0.7,
         "legend": {
             "calcs": [],
             "displayMode": "list",
-            "placement": "right",
-            "showLegend": false
+            "placement": "bottom",
+            "showLegend": true
         },
-        "orientation": "auto",
-        "showValue": "never",
-        "stacking": "percent",
         "tooltip": {
             "mode": "single",
             "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": -200,
-        "data": "",
-        "layout": "{{PLACEHOLDER}}",
-        "onclick": "{{PLACEHOLDER}}",
-        "script": "{{PLACEHOLDER}}"
+        }
     },
     "targets": [
         {
@@ -148,7 +87,7 @@
             "dateTimeType": "DATETIME",
             "datetimeLoading": false,
             "extrapolate": true,
-            "format": "table",
+            "format": "time_series",
             "formattedQuery": "",
             "intervalFactor": 1,
             "query": "{{PLACEHOLDER}}",
@@ -163,5 +102,5 @@
     "title": "{{PLACEHOLDER}}",
     "transformations": [],
     "transparent": true,
-    "type": "barchart"
+    "type": "timeseries"
 }

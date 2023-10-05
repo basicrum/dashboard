@@ -1,0 +1,136 @@
+{
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "BRUMMUCSTARBUCS"
+    },
+    "fieldConfig": {
+        "defaults": {
+            "color": {
+                "mode": "thresholds"
+            },
+            "custom": {
+                "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                }
+            },
+            "mappings": [],
+            "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                    {
+                        "color": "green",
+                        "value": null
+                    }
+                ]
+            }
+        },
+        "overrides": []
+    },
+    "gridPos": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+    },
+    "id": "{{PLACEHOLDER}}",
+    "options": {
+        "basemap": {
+            "config": {},
+            "name": "Layer 0",
+            "type": "default"
+        },
+        "controls": {
+            "mouseWheelZoom": true,
+            "showAttribution": true,
+            "showDebug": false,
+            "showMeasure": false,
+            "showScale": false,
+            "showZoom": true
+        },
+        "layers": [
+            {
+                "config": {
+                    "showLegend": true,
+                    "style": {
+                        "color": {
+                            "fixed": "dark-green"
+                        },
+                        "opacity": 0.4,
+                        "rotation": {
+                            "fixed": 0,
+                            "max": 360,
+                            "min": -360,
+                            "mode": "mod"
+                        },
+                        "size": {
+                            "field": "cnt",
+                            "fixed": 5,
+                            "max": 40,
+                            "min": 2
+                        },
+                        "symbol": {
+                            "fixed": "img/icons/marker/circle.svg",
+                            "mode": "fixed"
+                        },
+                        "textConfig": {
+                            "fontSize": 12,
+                            "offsetX": 0,
+                            "offsetY": 0,
+                            "textAlign": "center",
+                            "textBaseline": "middle"
+                        }
+                    }
+                },
+                "location": {
+                    "lookup": "geohash",
+                    "mode": "lookup"
+                },
+                "name": "Heatmap",
+                "opacity": 1,
+                "tooltip": true,
+                "type": "markers"
+            }
+        ],
+        "tooltip": {
+            "mode": "details"
+        },
+        "view": {
+            "allLayers": true,
+            "id": "zero",
+            "lat": 0,
+            "lon": 0,
+            "zoom": 2.47
+        }
+    },
+    "targets": [
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "BRUMMUCSTARBUCS"
+            },
+            "dateColDataType": "event_date",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "table",
+            "formattedQuery": "",
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "A",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        }
+    ],
+    "title": "{{PLACEHOLDER}}",
+    "transformations": [],
+    "transparent": true,
+    "type": "geomap"
+}
