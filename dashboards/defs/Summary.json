@@ -82,6 +82,45 @@
                     "fixedColor": "semi-dark-purple"
                 }
             }
+        ],
+        [
+            {
+                "title": "Sessions per day - All device types",
+                "type": "timeseries-sessions",
+                "source": "all",
+                "variables": {
+                    "fixedColor": "semi-dark-orange"
+                }
+            },
+            {
+                "title": "Sessions per day - Mobile",
+                "type": "timeseries-sessions",
+                "source": "mobile",
+                "variables": {
+                    "device_type": "mobile",
+                    "fixedColor": "semi-dark-green"
+                }
+            }
+        ],
+        [
+            {
+                "title": "Sessions per day - Desktop",
+                "type": "timeseries-sessions",
+                "source": "desktop",
+                "variables": {
+                    "device_type": "desktop",
+                    "fixedColor": "semi-dark-blue"
+                }
+            },
+            {
+                "title": "Sessions per day - Tablet",
+                "type": "timeseries-sessions",
+                "source": "tablet",
+                "variables": {
+                    "device_type": "tablet",
+                    "fixedColor": "semi-dark-purple"
+                }
+            }
         ]
     ]
 }
