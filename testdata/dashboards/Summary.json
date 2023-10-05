@@ -651,6 +651,87 @@
             "title": "Device distribution",
             "transformations": [],
             "type": "barchart"
+        },
+        {
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto",
+                        "inspect": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 16
+            },
+            "id": 5,
+            "options": {
+                "footer": {
+                    "fields": "",
+                    "reducer": ["sum"],
+                    "show": false
+                },
+                "showHeader": true,
+                "sortBy": [
+                    {
+                        "desc": true,
+                        "displayName": "count()"
+                    }
+                ]
+            },
+            "targets": [
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "table",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT operating_system, count(1) as count\nFROM $table\nWHERE event_type = 'visit_page'\nGROUP BY operating_system\nORDER BY count() DESC",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
+            ],
+            "title": "Visits by OS",
+            "type": "table"
         }
     ],
     "refresh": false,

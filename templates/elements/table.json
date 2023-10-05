@@ -6,78 +6,29 @@
     "fieldConfig": {
         "defaults": {
             "color": {
-            "mode": "thresholds"
+                "mode": "thresholds"
             },
             "custom": {
-            "align": "auto",
-            "displayMode": "auto",
-            "inspect": false
+                "align": "auto",
+                "displayMode": "auto",
+                "inspect": false
             },
             "mappings": [],
             "thresholds": {
-            "mode": "absolute",
-            "steps": [
-                {
-                "color": "green",
-                "value": null
-                },
-                {
-                "color": "red",
-                "value": 80
-                }
-            ]
+                "mode": "absolute",
+                "steps": [
+                    {
+                        "color": "green",
+                        "value": null
+                    },
+                    {
+                        "color": "red",
+                        "value": 80
+                    }
+                ]
             }
         },
-        "overrides": [
-            {
-            "matcher": {
-                "id": "byName",
-                "options": "#"
-            },
-            "properties": [
-                {
-                "id": "custom.width",
-                "value": 31
-                }
-            ]
-            },
-            {
-            "matcher": {
-                "id": "byName",
-                "options": "visits"
-            },
-            "properties": [
-                {
-                "id": "custom.width",
-                "value": 214
-                }
-            ]
-            },
-            {
-            "matcher": {
-                "id": "byName",
-                "options": "url"
-            },
-            "properties": [
-                {
-                "id": "custom.width",
-                "value": 682
-                }
-            ]
-            },
-            {
-            "matcher": {
-                "id": "byName",
-                "options": "75th_percentile"
-            },
-            "properties": [
-                {
-                "id": "custom.width",
-                "value": 135
-                }
-            ]
-            }
-        ]
+        "overrides": []
     },
     "gridPos": {
         "h": 0,
@@ -89,9 +40,7 @@
     "options": {
         "footer": {
             "fields": "",
-            "reducer": [
-            "sum"
-            ],
+            "reducer": ["sum"],
             "show": false
         },
         "showHeader": true,

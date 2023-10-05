@@ -33,9 +33,9 @@
                 "source": "device-distribution"
             },
             {
-                "title": "Device distribution",
-                "type": "none",
-                "source": "device-distribution"
+                "title": "Visits by OS",
+                "type": "table",
+                "source": "visits-by-os"
             }
         ]
     ]

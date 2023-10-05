@@ -1,0 +1,10 @@
+{
+    "options": {
+        "sortBy": [
+            {
+                "desc": true,
+                "displayName": "count()"
+            }
+        ]
+    }
+}
