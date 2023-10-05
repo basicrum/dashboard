@@ -37,6 +37,51 @@
                 "type": "table",
                 "source": "visits-by-os"
             }
+        ],
+        [
+            {
+                "title": "Business metrics",
+                "type": "row"
+            }
+        ],
+        [
+            {
+                "title": "Bounce rate - All",
+                "type": "timeseries",
+                "source": "bounce-rate-all",
+                "variables": {
+                    "fixedColor": "semi-dark-orange"
+                }
+            },
+            {
+                "title": "Bounce rate - Mobile",
+                "type": "timeseries",
+                "source": "bounce-rate-mobile",
+                "variables": {
+                    "device_type": "mobile",
+                    "fixedColor": "semi-dark-green"
+                }
+            }
+        ],
+        [
+            {
+                "title": "Bounce rate - Desktop",
+                "type": "timeseries",
+                "source": "bounce-rate-desktop",
+                "variables": {
+                    "device_type": "desktop",
+                    "fixedColor": "semi-dark-blue"
+                }
+            },
+            {
+                "title": "Bounce rate - Tablet",
+                "type": "timeseries",
+                "source": "bounce-rate-tablet",
+                "variables": {
+                    "device_type": "tablet",
+                    "fixedColor": "semi-dark-purple"
+                }
+            }
         ]
     ]
 }

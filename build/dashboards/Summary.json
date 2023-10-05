@@ -797,6 +797,535 @@
             "transformations": [],
             "transparent": true,
             "type": "table"
+        },
+        {
+            "collapsed": false,
+            "gridPos": {
+                "h": 1,
+                "w": 24,
+                "x": 0,
+                "y": 24
+            },
+            "id": 6,
+            "panels": [],
+            "title": "Business metrics",
+            "type": "row"
+        },
+        {
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "series",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "axisSoftMax": 100,
+                        "axisSoftMin": 0,
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 6,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineStyle": {
+                            "fill": "solid"
+                        },
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green"
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "bounce_rate"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Bounce Rate"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-orange",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 25
+            },
+            "id": 7,
+            "options": {
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "layout": {},
+                "script": "",
+                "onclick": ""
+            },
+            "targets": [
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT \n    event_date,\n    bounce_rate\nFROM (\n  SELECT\n      event_date,\n      count() AS all_sessions,\n      countIf(max_length = 1) AS bounced_sessions,\n      ((bounced_sessions / all_sessions) * 100) as bounce_rate\n  FROM\n  (\n      SELECT\n          event_date,\n          session_id,\n          max(session_length) AS max_length\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND device_type IN ('mobile','desktop','tablet')\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY event_date, session_id\n  )\n  GROUP BY event_date\n)\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
+            ],
+            "title": "Bounce rate - All",
+            "transformations": [],
+            "transparent": true,
+            "type": "timeseries"
+        },
+        {
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "series",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "axisSoftMax": 100,
+                        "axisSoftMin": 0,
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 6,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineStyle": {
+                            "fill": "solid"
+                        },
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green"
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "bounce_rate"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Bounce Rate"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-green",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 25
+            },
+            "id": 8,
+            "options": {
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "layout": {},
+                "script": "",
+                "onclick": ""
+            },
+            "targets": [
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT \n    event_date,\n    bounce_rate\nFROM (\n  SELECT\n      event_date,\n      count() AS all_sessions,\n      countIf(max_length = 1) AS bounced_sessions,\n      ((bounced_sessions / all_sessions) * 100) as bounce_rate\n  FROM\n  (\n      SELECT\n          event_date,\n          session_id,\n          max(session_length) AS max_length\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND device_type = 'mobile'\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY event_date, session_id\n  )\n  GROUP BY event_date\n)\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
+            ],
+            "title": "Bounce rate - Mobile",
+            "transformations": [],
+            "transparent": true,
+            "type": "timeseries"
+        },
+        {
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "series",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "axisSoftMax": 100,
+                        "axisSoftMin": 0,
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 6,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineStyle": {
+                            "fill": "solid"
+                        },
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green"
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "bounce_rate"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Bounce Rate"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-blue",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 33
+            },
+            "id": 9,
+            "options": {
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "layout": {},
+                "script": "",
+                "onclick": ""
+            },
+            "targets": [
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT \n    event_date,\n    bounce_rate\nFROM (\n  SELECT\n      event_date,\n      count() AS all_sessions,\n      countIf(max_length = 1) AS bounced_sessions,\n      ((bounced_sessions / all_sessions) * 100) as bounce_rate\n  FROM\n  (\n      SELECT\n          event_date,\n          session_id,\n          max(session_length) AS max_length\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND device_type = 'desktop'\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY event_date, session_id\n  )\n  GROUP BY event_date\n)\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
+            ],
+            "title": "Bounce rate - Desktop",
+            "transformations": [],
+            "transparent": true,
+            "type": "timeseries"
+        },
+        {
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "series",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "axisSoftMax": 100,
+                        "axisSoftMin": 0,
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 6,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineStyle": {
+                            "fill": "solid"
+                        },
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green"
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "bounce_rate"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Bounce Rate"
+                            },
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-purple",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 33
+            },
+            "id": 10,
+            "options": {
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "layout": {},
+                "script": "",
+                "onclick": ""
+            },
+            "targets": [
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT \n    event_date,\n    bounce_rate\nFROM (\n  SELECT\n      event_date,\n      count() AS all_sessions,\n      countIf(max_length = 1) AS bounced_sessions,\n      ((bounced_sessions / all_sessions) * 100) as bounce_rate\n  FROM\n  (\n      SELECT\n          event_date,\n          session_id,\n          max(session_length) AS max_length\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND device_type = 'tablet'\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY event_date, session_id\n  )\n  GROUP BY event_date\n)\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
+            ],
+            "title": "Bounce rate - Tablet",
+            "transformations": [],
+            "transparent": true,
+            "type": "timeseries"
         }
     ],
     "refresh": false,
