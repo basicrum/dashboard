@@ -1,7 +1,7 @@
 {
     "datasource": {
         "type": "vertamedia-clickhouse-datasource",
-        "uid": "BRUMMUCSTARBUCS"
+        "uid": "{{PLACEHOLDER}}"
     },
     "fieldConfig": {
         "defaults": {
@@ -62,8 +62,8 @@
                         "value": "Metric - 75th percentile"
                     },
                     {
-                    "id": "unit",
-                    "value": "ms"
+                        "id": "unit",
+                        "value": "ms"
                     }
                 ]
             }
@@ -106,7 +106,7 @@
             "database": "{{PLACEHOLDER}}",
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "BRUMMUCSTARBUCS"
+                "uid": "{{PLACEHOLDER}}"
             },
             "dateColDataType": "event_date",
             "dateLoading": false,
@@ -129,7 +129,7 @@
             "database": "{{PLACEHOLDER}}",
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "BRUMMUCSTARBUCS"
+                "uid": "{{PLACEHOLDER}}"
             },
             "dateColDataType": "event_date",
             "dateLoading": false,

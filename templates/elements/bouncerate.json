@@ -1,7 +1,7 @@
 {
     "datasource": {
         "type": "vertamedia-clickhouse-datasource",
-        "uid": "BRUMMUCSTARBUCS"
+        "uid": "{{PLACEHOLDER}}"
     },
     "fieldConfig": {
         "defaults": {
@@ -123,7 +123,7 @@
             "database": "{{PLACEHOLDER}}",
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "BRUMMUCSTARBUCS"
+                "uid": "{{PLACEHOLDER}}"
             },
             "dateColDataType": "event_date",
             "dateLoading": false,
