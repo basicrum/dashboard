@@ -43,7 +43,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -225,7 +225,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -241,7 +241,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -253,7 +253,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -439,7 +439,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -455,7 +455,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -467,7 +467,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -649,7 +649,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -665,7 +665,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -677,7 +677,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -859,7 +859,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -875,7 +875,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -887,7 +887,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1063,7 +1063,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -1079,7 +1079,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -1104,7 +1104,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1286,7 +1286,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -1302,7 +1302,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -1314,7 +1314,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1500,7 +1500,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -1516,7 +1516,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -1528,7 +1528,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1710,7 +1710,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -1726,7 +1726,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -1738,7 +1738,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -1920,7 +1920,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -1936,7 +1936,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -1948,7 +1948,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -2124,7 +2124,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -2140,7 +2140,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -2165,7 +2165,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -2348,7 +2348,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -2364,7 +2364,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -2376,7 +2376,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -2559,7 +2559,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -2575,7 +2575,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -2587,7 +2587,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -2770,7 +2770,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -2786,7 +2786,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -2798,7 +2798,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -2981,7 +2981,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -2997,7 +2997,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -3009,7 +3009,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -3192,7 +3192,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -3208,7 +3208,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -3220,7 +3220,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -3403,7 +3403,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -3419,7 +3419,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -3431,7 +3431,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -3606,7 +3606,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -3622,7 +3622,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -3634,7 +3634,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -3809,7 +3809,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -3825,7 +3825,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -3837,7 +3837,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -4024,7 +4024,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -4040,7 +4040,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -4052,7 +4052,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -4239,7 +4239,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -4255,7 +4255,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -4280,7 +4280,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -4471,7 +4471,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -4487,7 +4487,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -4499,7 +4499,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -4690,7 +4690,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -4706,7 +4706,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -4718,7 +4718,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -4909,7 +4909,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -4925,7 +4925,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -4937,7 +4937,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -5128,7 +5128,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -5144,7 +5144,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -5156,7 +5156,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -5347,7 +5347,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -5363,7 +5363,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -5375,7 +5375,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -5566,7 +5566,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -5582,7 +5582,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -5594,7 +5594,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -5781,7 +5781,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -5797,7 +5797,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -5809,7 +5809,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -5996,7 +5996,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -6012,7 +6012,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -6024,7 +6024,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -6199,7 +6199,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -6215,7 +6215,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -6227,7 +6227,7 @@
         {
             "datasource": {
                 "type": "vertamedia-clickhouse-datasource",
-                "uid": "A0Wl5Mc4z"
+                "uid": "BRUMMUCSTARBUCS"
             },
             "fieldConfig": {
                 "defaults": {
@@ -6402,7 +6402,7 @@
                     "database": "default",
                     "datasource": {
                         "type": "vertamedia-clickhouse-datasource",
-                        "uid": "A0Wl5Mc4z"
+                        "uid": "BRUMMUCSTARBUCS"
                     },
                     "dateColDataType": "event_date",
                     "dateLoading": false,
@@ -6418,7 +6418,7 @@
                     "refId": "A",
                     "round": "0s",
                     "skip_comments": true,
-                    "table": "basicrum_friends_webperf_rum_events",
+                    "table": "webperf_rum_events",
                     "tableLoading": false
                 }
             ],
@@ -6465,14 +6465,9 @@
                         "selected": false,
                         "text": "example2.com",
                         "value": "example2.com"
-                    },
-                    {
-                        "selected": false,
-                        "text": "calendar.perfplanet.com",
-                        "value": "calendar.perfplanet.com"
                     }
                 ],
-                "query": "example1.com : example1.com, example2.com : example2.com, calendar.perfplanet.com : calendar.perfplanet.com",
+                "query": "example1.com : example1.com, example2.com : example2.com",
                 "queryValue": "",
                 "skipUrlSync": false,
                 "type": "custom"
