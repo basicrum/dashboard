@@ -1,0 +1,54 @@
+{
+    "fieldConfig": {
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "#"
+                },
+                "properties": [
+                    {
+                        "id": "custom.width",
+                        "value": 31
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "visits"
+                },
+                "properties": [
+                    {
+                        "id": "custom.width",
+                        "value": 214
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "url"
+                },
+                "properties": [
+                    {
+                        "id": "custom.width",
+                        "value": 682
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "75th_percentile"
+                },
+                "properties": [
+                    {
+                        "id": "custom.width",
+                        "value": 135
+                    }
+                ]
+            }
+        ]
+    }
+}

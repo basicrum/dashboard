@@ -1,0 +1,157 @@
+{
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "{{PLACEHOLDER}}"
+    },
+    "fieldConfig": {
+        "defaults": {
+            "color": {
+                "mode": "palette-classic"
+            },
+            "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                    "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                },
+                "thresholdsStyle": {
+                    "mode": "off"
+                }
+            },
+            "mappings": [],
+            "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                    {
+                        "color": "green",
+                        "value": null
+                    }
+                ]
+            },
+            "unit": "short"
+        },
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "metic_75th_percentile"
+                },
+                "properties": [
+                    {
+                        "id": "displayName",
+                        "value": "Metric - 75th percentile"
+                    },
+                    {
+                        "id": "unit",
+                        "value": "ms"
+                    }
+                ]
+            }
+        ]
+    },
+    "gridPos": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+    },
+    "id": "{{PLACEHOLDER}}",
+    "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+        },
+        "orientation": "auto",
+        "showValue": "never",
+        "stacking": "percent",
+        "tooltip": {
+            "mode": "single",
+            "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": -200,
+        "config": "",
+        "data": "",
+        "layout": "{{PLACEHOLDER}}",
+        "onclick": "{{PLACEHOLDER}}",
+        "script": "{{PLACEHOLDER}}"
+    },
+    "targets": [
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "{{PLACEHOLDER}}"
+            },
+            "dateColDataType": "event_date",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "time_series",
+            "formattedQuery": "",
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "A",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        },
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "{{PLACEHOLDER}}"
+            },
+            "dateColDataType": "event_date",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "time_series",
+            "formattedQuery": "",
+            "hide": false,
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "B",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        }
+    ],
+    "title": "{{PLACEHOLDER}}",
+    "transformations": [],
+    "transparent": true,
+    "type": "timeseries"
+}

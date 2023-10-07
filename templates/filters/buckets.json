@@ -1,8 +1,8 @@
 {
     "current": {
         "selected": true,
-        "text": "100",
-        "value": "100"
+        "text": "150",
+        "value": "150"
     },
     "hide": 1,
     "includeAll": false,
@@ -16,12 +16,12 @@
             "value": "50"
         },
         {
-            "selected": true,
+            "selected": false,
             "text": "100",
             "value": "100"
         },
         {
-            "selected": false,
+            "selected": true,
             "text": "150",
             "value": "150"
         },

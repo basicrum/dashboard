@@ -1,0 +1,126 @@
+{
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "{{PLACEHOLDER}}"
+    },
+    "fieldConfig": {
+        "defaults": {
+            "color": {
+                "mode": "palette-classic"
+            },
+            "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "series",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "axisSoftMax": 100,
+                "axisSoftMin": 0,
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 6,
+                "gradientMode": "opacity",
+                "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                    "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                    "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                },
+                "thresholdsStyle": {
+                    "mode": "off"
+                }
+            },
+            "mappings": [],
+            "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                    {
+                        "color": "green"
+                    }
+                ]
+            }
+        },
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "bounce_rate"
+                },
+                "properties": [
+                    {
+                        "id": "displayName",
+                        "value": "Bounce Rate"
+                    },
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "$$fixedColor",
+                            "mode": "fixed"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "gridPos": {
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+    },
+    "id": "{{PLACEHOLDER}}",
+    "options": {
+        "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+        },
+        "tooltip": {
+            "mode": "single",
+            "sort": "none"
+        }
+    },
+    "targets": [
+        {
+            "database": "{{PLACEHOLDER}}",
+            "datasource": {
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "{{PLACEHOLDER}}"
+            },
+            "dateColDataType": "event_date",
+            "dateLoading": false,
+            "dateTimeColDataType": "created_at",
+            "dateTimeType": "DATETIME",
+            "datetimeLoading": false,
+            "extrapolate": true,
+            "format": "time_series",
+            "formattedQuery": "",
+            "intervalFactor": 1,
+            "query": "{{PLACEHOLDER}}",
+            "rawQuery": "",
+            "refId": "A",
+            "round": "0s",
+            "skip_comments": true,
+            "table": "{{PLACEHOLDER}}",
+            "tableLoading": false
+        }
+    ],
+    "title": "{{PLACEHOLDER}}",
+    "transformations": [],
+    "transparent": true,
+    "type": "timeseries"
+}

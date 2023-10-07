@@ -1,15 +1,15 @@
 SELECT
-    intDiv(cumulative_layout_shift, 0.01) * 0.01 as cumulative_layout_shift_value,
-    sum(toUInt32(1)) as count
+    intDiv($$column_name, 0.01) * 0.01 as value,
+    sum(toUInt64(1)) as count
     
 FROM $table
 
 WHERE
     $timeFilter
     AND event_type = 'visit_page'
-    AND cumulative_layout_shift IS NOT NULL
+    AND $$column_name IS NOT NULL
+    AND browser_name = '$$browser_name'
     $conditionalTest(AND hostname in($hostname), $hostname)
-    $conditionalTest(AND device_type in($device_type), $device_type)
 
-GROUP BY cumulative_layout_shift_value
-ORDER BY cumulative_layout_shift_value
+GROUP BY value
+ORDER BY value

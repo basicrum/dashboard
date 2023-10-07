@@ -28,20 +28,20 @@
   "liveNow": false,
   "panels": [],
   "refresh": false,
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-1y",
+    "from": "now-30d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "General",
-  "uid": "basicrum-general",
+  "uid": "basicrum-general1",
   "version": 0,
   "weekStart": ""
 }

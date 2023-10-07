@@ -1,0 +1,88 @@
+{
+    "fieldConfig": {
+        "overrides": [
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "desktop"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "blue",
+                            "mode": "fixed"
+                        }
+                    },
+                    {
+                        "id": "displayName",
+                        "value": "Desktop"
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "mobile"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "green",
+                            "mode": "fixed"
+                        }
+                    },
+                    {
+                        "id": "displayName",
+                        "value": "Mobile"
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "tablet"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "orange",
+                            "mode": "fixed"
+                        }
+                    },
+                    {
+                        "id": "displayName",
+                        "value": "Tablet"
+                    }
+                ]
+            },
+            {
+                "matcher": {
+                    "id": "byName",
+                    "options": "bot"
+                },
+                "properties": [
+                    {
+                        "id": "color",
+                        "value": {
+                            "fixedColor": "dark-red",
+                            "mode": "fixed"
+                        }
+                    },
+                    {
+                        "id": "displayName",
+                        "value": "Bot"
+                    }
+                ]
+            }
+        ]
+    },
+    "options": {
+        "legend": {
+            "placement": "bottom",
+            "showLegend": true
+        }
+    }
+}

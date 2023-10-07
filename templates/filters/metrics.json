@@ -1,0 +1,53 @@
+{
+    "current": {
+        "selected": true,
+        "text": "First Byte",
+        "value": "first_byte_duration"
+    },
+    "hide": 1,
+    "includeAll": false,
+    "label": "Metric",
+    "multi": false,
+    "name": "metric",
+    "options": [
+        {
+            "selected": true,
+            "text": "First Byte",
+            "value": "first_byte_duration"
+        },
+        {
+            "selected": false,
+            "text": "Dns",
+            "value": "dns_duration"
+        },
+        {
+            "selected": false,
+            "text": "Connect",
+            "value": "connect_duration"
+        },
+        {
+            "selected": false,
+            "text": "Redirect Duration",
+            "value": "redirect_duration"
+        },
+        {
+            "selected": false,
+            "text": "Largest Contentful Paint",
+            "value": "largest_contentful_paint"
+        },
+        {
+            "selected": false,
+            "text": "First Contentful Paint",
+            "value": "first_contentful_paint"
+        },
+        {
+            "selected": false,
+            "text": "First  Paint",
+            "value": "first_paint"
+        }
+    ],
+    "query": "First Byte : first_byte_duration, Dns : dns_duration, Connect : connect_duration,  Redirect Duration : redirect_duration, Largest Contentful Paint\n: largest_contentful_paint, First Contentful Paint : first_contentful_paint, First  Paint : first_paint",
+    "queryValue": "",
+    "skipUrlSync": false,
+    "type": "custom"
+}

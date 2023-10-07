@@ -2,12 +2,8 @@
     "allValue": "",
     "current": {
         "selected": true,
-        "text": [
-            "example1.com"
-        ],
-        "value": [
-            "example1.com"
-        ]
+        "text": ["All"],
+        "value": ["$__all"]
     },
     "hide": 1,
     "includeAll": true,
@@ -16,7 +12,7 @@
     "name": "hostname",
     "options": [
         {
-            "selected": false,
+            "selected": true,
             "text": "All",
             "value": "$__all"
         },

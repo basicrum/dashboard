@@ -1,0 +1,126 @@
+{
+    "uid": "basicrum-metrics-summary",
+    "title": "Summary",
+    "filters": ["hosts"],
+    "rows": [
+        [
+            {
+                "title": "Impressions by Country",
+                "type": "geomap",
+                "source": "impressions",
+                "h": 16,
+                "w": 12
+            },
+            {
+                "title": "Screen Widths",
+                "type": "ae3e-plotly-panel",
+                "source": "screen-width",
+                "w": 12
+            },
+            {
+                "title": "Visits per day",
+                "type": "timeseries-visits",
+                "source": "visits-per-day",
+                "w": 12,
+                "x": 12,
+                "y": 8
+            }
+        ],
+        [
+            {
+                "title": "Device distribution",
+                "type": "barchart",
+                "source": "device-distribution"
+            },
+            {
+                "title": "Visits by OS",
+                "type": "table",
+                "source": "visits-by-os"
+            }
+        ],
+        [
+            {
+                "title": "Business metrics",
+                "type": "row"
+            }
+        ],
+        [
+            {
+                "title": "Bounce rate - All",
+                "type": "timeseries",
+                "source": "bounce-rate-all",
+                "variables": {
+                    "fixedColor": "semi-dark-orange"
+                }
+            },
+            {
+                "title": "Bounce rate - Mobile",
+                "type": "timeseries",
+                "source": "bounce-rate-mobile",
+                "variables": {
+                    "device_type": "mobile",
+                    "fixedColor": "semi-dark-green"
+                }
+            }
+        ],
+        [
+            {
+                "title": "Bounce rate - Desktop",
+                "type": "timeseries",
+                "source": "bounce-rate-desktop",
+                "variables": {
+                    "device_type": "desktop",
+                    "fixedColor": "semi-dark-blue"
+                }
+            },
+            {
+                "title": "Bounce rate - Tablet",
+                "type": "timeseries",
+                "source": "bounce-rate-tablet",
+                "variables": {
+                    "device_type": "tablet",
+                    "fixedColor": "semi-dark-purple"
+                }
+            }
+        ],
+        [
+            {
+                "title": "Sessions per day - All device types",
+                "type": "timeseries-sessions",
+                "source": "all",
+                "variables": {
+                    "fixedColor": "semi-dark-orange"
+                }
+            },
+            {
+                "title": "Sessions per day - Mobile",
+                "type": "timeseries-sessions",
+                "source": "mobile",
+                "variables": {
+                    "device_type": "mobile",
+                    "fixedColor": "semi-dark-green"
+                }
+            }
+        ],
+        [
+            {
+                "title": "Sessions per day - Desktop",
+                "type": "timeseries-sessions",
+                "source": "desktop",
+                "variables": {
+                    "device_type": "desktop",
+                    "fixedColor": "semi-dark-blue"
+                }
+            },
+            {
+                "title": "Sessions per day - Tablet",
+                "type": "timeseries-sessions",
+                "source": "tablet",
+                "variables": {
+                    "device_type": "tablet",
+                    "fixedColor": "semi-dark-purple"
+                }
+            }
+        ]
+    ]
+}
