@@ -1,0 +1,25 @@
+{
+    "allValue": "",
+    "current": {
+        "selected": true,
+        "text": ["All"],
+        "value": ["$__all"]
+    },
+    "datasource": {
+        "type": "vertamedia-clickhouse-datasource",
+        "uid": "BRUMMUCSTARBUCS"
+    },
+    "definition": "SELECT hostname from webperf_rum_own_hostnames where username = '${__user.login}' order by hostname",
+    "hide": 0,
+    "includeAll": true,
+    "label": "Hostname",
+    "multi": false,
+    "name": "hostname",
+    "options": [],
+    "query": "SELECT hostname from webperf_rum_own_hostnames where username = '${__user.login}' order by hostname",
+    "refresh": 1,
+    "regex": "",
+    "skipUrlSync": false,
+    "sort": 0,
+    "type": "query"
+}

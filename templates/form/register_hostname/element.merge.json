@@ -1,0 +1,18 @@
+{
+    "options": {
+        "elements": [
+            {
+                "hidden": false,
+                "id": "hostname",
+                "labelWidth": 10,
+                "section": "",
+                "title": "Hostname",
+                "tooltip": "",
+                "type": "string",
+                "uid": "7dd22e57-5bff-47b9-b56e-c4565241d665",
+                "unit": "",
+                "value": ""
+            }
+        ]
+    }
+}

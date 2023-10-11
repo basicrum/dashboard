@@ -318,7 +318,10 @@
                     "xaxis": {
                         "autorange": false,
                         "tickmode": "array",
-                        "range": [-1, 2600],
+                        "range": [
+                            -1,
+                            2600
+                        ],
                         "ticktext": [
                             "250 px",
                             "500 px",
@@ -330,7 +333,14 @@
                             "5000 px"
                         ],
                         "tickvals": [
-                            250, 500, 1000, 1500, 2000, 3000, 4000, 5000
+                            250,
+                            500,
+                            1000,
+                            1500,
+                            2000,
+                            3000,
+                            4000,
+                            5000
                         ]
                     }
                 },
@@ -742,7 +752,9 @@
             "options": {
                 "footer": {
                     "fields": "",
-                    "reducer": ["sum"],
+                    "reducer": [
+                        "sum"
+                    ],
                     "show": false
                 },
                 "showHeader": true,
@@ -1862,8 +1874,12 @@
                 "allValue": "",
                 "current": {
                     "selected": true,
-                    "text": ["All"],
-                    "value": ["$__all"]
+                    "text": [
+                        "All"
+                    ],
+                    "value": [
+                        "$__all"
+                    ]
                 },
                 "hide": 1,
                 "includeAll": true,

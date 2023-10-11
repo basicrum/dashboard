@@ -1,0 +1,1 @@
+SELECT hostname, role_name from webperf_rum_view_hostnames where username = '${__user.login}' order by hostname
