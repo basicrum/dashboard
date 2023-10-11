@@ -19,7 +19,7 @@ FROM (
         AND event_type = 'visit_page'
         AND visibility_state = 'visible'
         AND device_type = '$$device_type'
-        $conditionalTest(AND hostname in($hostname), $hostname)
+        AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
       GROUP BY event_date, session_id
   )
   GROUP BY event_date

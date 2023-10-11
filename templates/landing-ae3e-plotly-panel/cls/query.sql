@@ -10,7 +10,7 @@ WHERE
     AND $$column_name IS NOT NULL
     AND session_length = 1
     AND browser_name = '$$browser_name'
-    $conditionalTest(AND hostname in($hostname), $hostname)
+    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
 
 GROUP BY value
 ORDER BY value
