@@ -138,7 +138,7 @@
                 "w": 12,
                 "x": 0,
                 "y": 0
-              },
+            },
             "id": 1,
             "options": {
                 "barRadius": 0,
@@ -224,7 +224,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    intDiv($metric, $bucket_size) * $bucket_size as metric_value,\n    sum(toUInt64(1)) as count\n    \nFROM $table\n\nWHERE\n    $timeFilter\n    AND $metric > 0\n    AND $metric < 10000\n    AND event_type = 'visit_page'\n    $conditionalTest(AND hostname in($hostname), $hostname)\n    $conditionalTest(AND device_type in($device_type), $device_type)\n\nGROUP BY metric_value\nORDER BY metric_value\n",
+                    "query": "SELECT\n    intDiv($metric, $bucket_size) * $bucket_size as metric_value,\n    sum(toUInt64(1)) as count\n    \nFROM $table\n\nWHERE\n    $timeFilter\n    AND $metric > 0\n    AND $metric < 10000\n    AND event_type = 'visit_page'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n    $conditionalTest(AND device_type in($device_type), $device_type)\n\nGROUP BY metric_value\nORDER BY metric_value\n",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -240,365 +240,531 @@
         },
         {
             "datasource": {
-              "type": "vertamedia-clickhouse-datasource",
-              "uid": "A0Wl5Mc4z"
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
             },
             "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "palette-classic"
-                },
-                "custom": {
-                  "axisCenteredZero": false,
-                  "axisColorMode": "text",
-                  "axisLabel": "",
-                  "axisPlacement": "auto",
-                  "barAlignment": 0,
-                  "drawStyle": "line",
-                  "fillOpacity": 0,
-                  "gradientMode": "none",
-                  "hideFrom": {
-                    "legend": false,
-                    "tooltip": false,
-                    "viz": false
-                  },
-                  "lineInterpolation": "linear",
-                  "lineWidth": 1,
-                  "pointSize": 5,
-                  "scaleDistribution": {
-                    "type": "linear"
-                  },
-                  "showPoints": "auto",
-                  "spanNulls": false,
-                  "stacking": {
-                    "group": "A",
-                    "mode": "none"
-                  },
-                  "thresholdsStyle": {
-                    "mode": "off"
-                  }
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
-                    {
-                      "color": "green",
-                      "value": null
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "metic_75th_percentile"
-                  },
-                  "properties": [
-                    {
-                      "id": "displayName",
-                      "value": "Metric - 75th percentile"
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
                     },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "barAlignment": 0,
+                        "drawStyle": "line",
+                        "fillOpacity": 0,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineInterpolation": "linear",
+                        "lineWidth": 1,
+                        "pointSize": 5,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "showPoints": "auto",
+                        "spanNulls": false,
+                        "stacking": {
+                            "group": "A",
+                            "mode": "none"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            }
+                        ]
+                    },
+                    "unit": "short"
+                },
+                "overrides": [
                     {
-                      "id": "unit",
-                      "value": "ms"
+                        "matcher": {
+                            "id": "byName",
+                            "options": "metic_75th_percentile"
+                        },
+                        "properties": [
+                            {
+                                "id": "displayName",
+                                "value": "Metric - 75th percentile"
+                            },
+                            {
+                                "id": "unit",
+                                "value": "ms"
+                            }
+                        ]
                     }
-                  ]
-                }
-              ]
+                ]
             },
             "gridPos": {
-              "h": 8,
-              "w": 12,
-              "x": 12,
-              "y": 0
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 0
             },
             "id": 2,
             "options": {
-              "legend": {
-                "calcs": [],
-                "displayMode": "list",
-                "placement": "bottom",
-                "showLegend": true
-              },
-              "tooltip": {
-                "mode": "single",
-                "sort": "none"
-              }
+                "barRadius": 0,
+                "barWidth": 0.97,
+                "groupWidth": 0.7,
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": true
+                },
+                "orientation": "auto",
+                "showValue": "never",
+                "stacking": "percent",
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": -200,
+                "config": "",
+                "data": "",
+                "layout": {
+                    "barmode": "stack",
+                    "legend": {
+                        "bgcolor": "#fff",
+                        "orientation": "h"
+                    },
+                    "margin": {
+                        "b": 30,
+                        "l": 45,
+                        "pad": 4,
+                        "r": 10,
+                        "t": 10
+                    },
+                    "paper_bgcolor": "rgba(0, 0, 0, 0)",
+                    "plot_bgcolor": "rgba(0, 0, 0, 0)",
+                    "xaxis": {
+                        "autorange": false,
+                        "tickmode": "array",
+                        "range": [
+                            -100,
+                            8100
+                        ],
+                        "ticktext": [
+                            "1 sec",
+                            "2 sec",
+                            "3 sec",
+                            "4 sec",
+                            "5 sec",
+                            "6 sec",
+                            "7 sec",
+                            "8 sec"
+                        ],
+                        "tickvals": [
+                            1000,
+                            2000,
+                            3000,
+                            4000,
+                            5000,
+                            6000,
+                            7000,
+                            8000
+                        ]
+                    }
+                },
+                "onclick": "",
+                "script": "var xValue = [];\nvar yValue = [];\n\nvar dataFound = true;\n\ntry {\n    var xValue = data.series[0].fields[0].values.buffer;\n    var yValue = data.series[0].fields[1].values.buffer;\n}\ncatch (e) {\n    dataFound = false\n}\n\nvar trace1 = {};\n\nif (dataFound) {\n    trace1 = {\n        x: xValue,\n        y: yValue,\n        type: 'bar',\n        textposition: 'auto',\n        hoverinfo: 'none',\n        marker: {\n            opacity: 0.6,\n            line: {\n                color: 'rgb(8,48,107)',\n                width: 1.5\n            }\n        }\n    };\n\n    trace1.marker.color = trace1.x.map(function (v) {\n        if (v <= $$needs_improvement_min_value) {\n            return '#0cce6a'\n        }\n\n        if (v > $$needs_improvement_min_value && v <= $$needs_improvement_max_value) {\n            return '#ffa400'\n        }\n\n        return '#ff4e43'\n    });\n}\n\nvar layout = {\n    title: ''\n}\n\nif (!dataFound) {\n    // Idea from: https://community.plotly.com/t/replacing-an-empty-graph-with-a-message/31497/2\n    layout['annotations'] = [\n        {\n            \"text\": \"No data\",\n            \"xref\": \"paper\",\n            \"yref\": \"paper\",\n            \"showarrow\": false,\n            \"font\": {\n                \"size\": 28\n            }\n        }\n    ];\n\n    layout['xaxis'] = {\n        \"visible\": false\n    };\n\n    layout['yaxis'] = {\n        \"visible\": false\n    };\n}\n\nreturn { data: [trace1], layout: layout };"
             },
             "targets": [
-              {
-                "database": "default",
-                "datasource": {
-                  "type": "vertamedia-clickhouse-datasource",
-                  "uid": "A0Wl5Mc4z"
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT\n    toDate(event_date) as t,\n    quantile(0.75)($metric) as metic_75th_percentile\n\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
                 },
-                "dateColDataType": "event_date",
-                "dateLoading": false,
-                "dateTimeColDataType": "created_at",
-                "dateTimeType": "DATETIME",
-                "datetimeLoading": false,
-                "extrapolate": true,
-                "format": "time_series",
-                "formattedQuery": "",
-                "intervalFactor": 1,
-                "query": "SELECT\n    toDate(event_date) as t,\n    quantile(0.75)($metric) as metic_75th_percentile\n\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    $conditionalTest(AND hostname in($hostname), $hostname)\nGROUP BY t",
-                "rawQuery": "",
-                "refId": "A",
-                "round": "0s",
-                "skip_comments": true,
-                "table": "basicrum_friends_webperf_rum_events",
-                "tableLoading": false
-              },
-              {
-                "database": "default",
-                "datasource": {
-                  "type": "vertamedia-clickhouse-datasource",
-                  "uid": "A0Wl5Mc4z"
-                },
-                "dateColDataType": "event_date",
-                "dateLoading": false,
-                "dateTimeColDataType": "created_at",
-                "dateTimeType": "DATETIME",
-                "datetimeLoading": false,
-                "extrapolate": true,
-                "format": "time_series",
-                "formattedQuery": "",
-                "hide": false,
-                "intervalFactor": 1,
-                "query": "SELECT\n  toDate(event_date) as t,\n  count() as visits\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    $conditionalTest(AND hostname in($hostname), $hostname)\nGROUP BY t",
-                "rawQuery": "",
-                "refId": "B",
-                "round": "0s",
-                "skip_comments": true,
-                "table": "basicrum_friends_webperf_rum_events",
-                "tableLoading": false
-              }
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "time_series",
+                    "formattedQuery": "",
+                    "hide": false,
+                    "intervalFactor": 1,
+                    "query": "SELECT\n  toDate(event_date) as t,\n  count() as visits\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "rawQuery": "",
+                    "refId": "B",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
             ],
             "title": "75th percentile / day",
             "transformations": [],
+            "transparent": true,
             "type": "timeseries"
-          },
-          {
+        },
+        {
             "datasource": {
-              "type": "vertamedia-clickhouse-datasource",
-              "uid": "A0Wl5Mc4z"
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisLabel": "",
+                        "axisPlacement": "auto",
+                        "fillOpacity": 80,
+                        "gradientMode": "none",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineWidth": 1,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": [
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "poor"
+                        },
+                        "properties": [
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-red",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "good"
+                        },
+                        "properties": [
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-green",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "needs_improvement"
+                        },
+                        "properties": [
+                            {
+                                "id": "color",
+                                "value": {
+                                    "fixedColor": "semi-dark-yellow",
+                                    "mode": "fixed"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "matcher": {
+                            "id": "byName",
+                            "options": "t"
+                        },
+                        "properties": [
+                            {
+                                "id": "unit",
+                                "value": "dateTimeAsSystem"
+                            }
+                        ]
+                    }
+                ]
             },
             "gridPos": {
-              "h": 10,
-              "w": 12,
-              "x": 0,
-              "y": 9
+                "h": 10,
+                "w": 12,
+                "x": 0,
+                "y": 9
             },
             "id": 3,
             "options": {
-              "layout": {
-                "legend": {
-                  "bgcolor": "#fff",
-                  "orientation": "h"
+                "orientation": "auto",
+                "config": "",
+                "data": "",
+                "layout": {
+                    "legend": {
+                        "bgcolor": "#fff",
+                        "orientation": "h"
+                    },
+                    "margin": {
+                        "b": 30,
+                        "l": 45,
+                        "pad": 4,
+                        "r": 40,
+                        "t": 10
+                    },
+                    "paper_bgcolor": "rgba(0, 0, 0, 0)",
+                    "plot_bgcolor": "rgba(0, 0, 0, 0)",
+                    "xaxis": {
+                        "autorange": false,
+                        "gridcolor": "#333",
+                        "range": [
+                            0,
+                            5100
+                        ],
+                        "tickmode": "array",
+                        "ticktext": [
+                            "1 sec",
+                            "2 sec",
+                            "3 sec",
+                            "4 sec",
+                            "5 sec"
+                        ],
+                        "tickvals": [
+                            1000,
+                            2000,
+                            3000,
+                            4000,
+                            5000
+                        ]
+                    },
+                    "yaxis": {
+                        "autorange": true,
+                        "gridcolor": "#333",
+                        "range": [
+                            -1,
+                            4
+                        ]
+                    }
                 },
-                "margin": {
-                  "b": 30,
-                  "l": 45,
-                  "pad": 4,
-                  "r": 40,
-                  "t": 10
-                },
-                "paper_bgcolor": "rgba(0, 0, 0, 0)",
-                "plot_bgcolor": "rgba(0, 0, 0, 0)",
-                "xaxis": {
-                  "autorange": false,
-                  "gridcolor": "#333",
-                  "range": [
-                    0,
-                    5100
-                  ],
-                  "tickmode": "array",
-                  "ticktext": [
-                    "1 sec",
-                    "2 sec",
-                    "3 sec",
-                    "4 sec",
-                    "5 sec"
-                  ],
-                  "tickvals": [
-                    1000,
-                    2000,
-                    3000,
-                    4000,
-                    5000
-                  ]
-                },
-                "yaxis": {
-                  "autorange": true,
-                  "gridcolor": "#333",
-                  "range": [
-                    -1,
-                    4
-                  ]
-                }
-              },
-              "onclick": "",
-              "script": "var xBouncedValue = data.series[0].fields[0].values.buffer;\nvar yBouncedValue = data.series[0].fields[1].values.buffer;\n\nvar xAllValue = data.series[0].fields[0].values.buffer;\nvar yAllValue = data.series[0].fields[2].values.buffer;\n\n// Start: Round bounce rate\nyBouncedValue = yBouncedValue.map(function(val){\n    return val.toFixed(2);\n});\n// End: Round bounce rate\n\n// Start: calculate min and max of bounce rate in first 5 sec.\nvar minBounceRate = 999;\nvar maxBounceRate = 0;\n\nvar step = xBouncedValue[1];\nvar limit = 0;\n\nfor (var cnt = 0; limit <= 5000; cnt++) {\n    limit = limit + step;\n    var val = parseInt(yBouncedValue[cnt]);\n\n    if (val > maxBounceRate) {\n        maxBounceRate = val;\n    }\n\n    if (val < minBounceRate) {\n        minBounceRate = val;\n    }\n}\n// End: calculate min and max of bounce rate in first 5 sec\n\n// Start: calculate range\nvar rangeDistance = 10;\nvar bottomBoundary = 0;\nvar upperBoundary = 100;\n\nif (rangeDistance - minBounceRate > bottomBoundary) {\n    bottomBoundary = minBounceRate | 0;\n}\n\nif (maxBounceRate + rangeDistance < upperBoundary) {\n    upperBoundary = (maxBounceRate | 0) + rangeDistance;\n}\n\nupperBoundary = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].reduce(function(prev, curr) {\n    return (Math.abs(curr - upperBoundary) < Math.abs(prev - upperBoundary) ? curr : prev);\n});\n\nbottomBoundary = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].reverse().reduce(function(prev, curr) {\n    return (Math.abs(curr - bottomBoundary) < Math.abs(prev - bottomBoundary) ? curr : prev);\n});\n\nif (bottomBoundary == 10) {\n    bottomBoundary = 0;\n}\n// End: calculate range\n\n// Start: Add annotations\n//  - Iterate yAllValue values\n//  - Add annotation on every 5th value\n\nvar annotations = [];\n\nvar i = 0;\nwhile (true) {\n    var x = xBouncedValue[i];\n\n    if (i % 5 == 0) {\n        var y = yBouncedValue[i];\n        var annotationText = y + \"%\";\n\n        annotations.push({\n            \"xref\": \"x\",\n            \"yref\": \"y2\",\n            \"x\": x,\n            \"y\": y,\n            \"xanchor\": \"center\",\n            \"yanchor\": \"bottom\",\n            \"text\": annotationText,\n            \"showarrow\": false,\n            \"font\": {\n                \"family\": \"Arial\",\n                \"size\": 12,\n                \"color\": \"white\"\n            }\n        });\n    }\n\n    i++;\n\n    if (x > 5000) {\n        break;\n    }\n}\n\n// End: Add annotations\n\nvar trace1 = {\n    x: xBouncedValue,\n    y: yBouncedValue,\n    type: 'scatter',\n    name: 'Bounce Rate',\n    yaxis: \"y2\",\n    line: {\n        color: 'rgb(219, 64, 82)',\n        width: 3\n    }\n};\n\nvar trace2 = {\n    x: xAllValue,\n    y: yAllValue,\n    type: 'scatter',\n    name: \"Metric - Landing page\",\n    yaxis: \"y1\",\n    line: {\n        color:'rgb(55, 128, 191)',\n        width: 3\n    }\n};\n\nvar layout = {\n    title:'',\n    xaxis: {\n        fixedrange: true\n    },\n    yaxis: {\n        fixedrange: true\n    },\n    xaxis2: {\n        fixedrange: true\n    },\n    yaxis2: {\n        overlaying: \"y\",\n        side: \"right\",\n        showgrid: false,\n        tickvals: [\n            0,\n            10,\n            20,\n            30,\n            40,\n            50,\n            60,\n            70,\n            80,\n            90,\n            100\n        ],\n        ticktext: [\n            \"10 %\",\n            \"20 %\",\n            \"30 %\",\n            \"40 %\",\n            \"50 %\",\n            \"60 %\",\n            \"70 %\",\n            \"80 %\",\n            \"90 %\",\n            \"100 %\"\n        ],\n        range: [\n            bottomBoundary,\n            upperBoundary\n        ],\n        fixedrange: true,\n    }\n};\n\nif (annotations.length > 0) {\n    layout[\"annotations\"] = annotations;\n}\n\nreturn { data: [trace1, trace2], layout: layout };"
+                "onclick": "",
+                "script": "var xBouncedValue = data.series[0].fields[0].values.buffer;\nvar yBouncedValue = data.series[0].fields[1].values.buffer;\n\nvar xAllValue = data.series[0].fields[0].values.buffer;\nvar yAllValue = data.series[0].fields[2].values.buffer;\n\n// Start: Round bounce rate\nyBouncedValue = yBouncedValue.map(function(val){\n    return val.toFixed(2);\n});\n// End: Round bounce rate\n\n// Start: calculate min and max of bounce rate in first 5 sec.\nvar minBounceRate = 999;\nvar maxBounceRate = 0;\n\nvar step = xBouncedValue[1];\nvar limit = 0;\n\nfor (var cnt = 0; limit <= 5000; cnt++) {\n    limit = limit + step;\n    var val = parseInt(yBouncedValue[cnt]);\n\n    if (val > maxBounceRate) {\n        maxBounceRate = val;\n    }\n\n    if (val < minBounceRate) {\n        minBounceRate = val;\n    }\n}\n// End: calculate min and max of bounce rate in first 5 sec\n\n// Start: calculate range\nvar rangeDistance = 10;\nvar bottomBoundary = 0;\nvar upperBoundary = 100;\n\nif (rangeDistance - minBounceRate > bottomBoundary) {\n    bottomBoundary = minBounceRate | 0;\n}\n\nif (maxBounceRate + rangeDistance < upperBoundary) {\n    upperBoundary = (maxBounceRate | 0) + rangeDistance;\n}\n\nupperBoundary = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].reduce(function(prev, curr) {\n    return (Math.abs(curr - upperBoundary) < Math.abs(prev - upperBoundary) ? curr : prev);\n});\n\nbottomBoundary = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100].reverse().reduce(function(prev, curr) {\n    return (Math.abs(curr - bottomBoundary) < Math.abs(prev - bottomBoundary) ? curr : prev);\n});\n\nif (bottomBoundary == 10) {\n    bottomBoundary = 0;\n}\n// End: calculate range\n\n// Start: Add annotations\n//  - Iterate yAllValue values\n//  - Add annotation on every 5th value\n\nvar annotations = [];\n\nvar i = 0;\nwhile (true) {\n    var x = xBouncedValue[i];\n\n    if (i % 5 == 0) {\n        var y = yBouncedValue[i];\n        var annotationText = y + \"%\";\n\n        annotations.push({\n            \"xref\": \"x\",\n            \"yref\": \"y2\",\n            \"x\": x,\n            \"y\": y,\n            \"xanchor\": \"center\",\n            \"yanchor\": \"bottom\",\n            \"text\": annotationText,\n            \"showarrow\": false,\n            \"font\": {\n                \"family\": \"Arial\",\n                \"size\": 12,\n                \"color\": \"white\"\n            }\n        });\n    }\n\n    i++;\n\n    if (x > 5000) {\n        break;\n    }\n}\n\n// End: Add annotations\n\nvar trace1 = {\n    x: xBouncedValue,\n    y: yBouncedValue,\n    type: 'scatter',\n    name: 'Bounce Rate',\n    yaxis: \"y2\",\n    line: {\n        color: 'rgb(219, 64, 82)',\n        width: 3\n    }\n};\n\nvar trace2 = {\n    x: xAllValue,\n    y: yAllValue,\n    type: 'scatter',\n    name: \"Metric - Landing page\",\n    yaxis: \"y1\",\n    line: {\n        color:'rgb(55, 128, 191)',\n        width: 3\n    }\n};\n\nvar layout = {\n    title:'',\n    xaxis: {\n        fixedrange: true\n    },\n    yaxis: {\n        fixedrange: true\n    },\n    xaxis2: {\n        fixedrange: true\n    },\n    yaxis2: {\n        overlaying: \"y\",\n        side: \"right\",\n        showgrid: false,\n        tickvals: [\n            0,\n            10,\n            20,\n            30,\n            40,\n            50,\n            60,\n            70,\n            80,\n            90,\n            100\n        ],\n        ticktext: [\n            \"10 %\",\n            \"20 %\",\n            \"30 %\",\n            \"40 %\",\n            \"50 %\",\n            \"60 %\",\n            \"70 %\",\n            \"80 %\",\n            \"90 %\",\n            \"100 %\"\n        ],\n        range: [\n            bottomBoundary,\n            upperBoundary\n        ],\n        fixedrange: true,\n    }\n};\n\nif (annotations.length > 0) {\n    layout[\"annotations\"] = annotations;\n}\n\nreturn { data: [trace1, trace2], layout: layout };"
             },
             "targets": [
-              {
-                "database": "default",
-                "datasource": {
-                  "type": "vertamedia-clickhouse-datasource",
-                  "uid": "A0Wl5Mc4z"
-                },
-                "dateColDataType": "event_date",
-                "dateLoading": false,
-                "dateTimeColDataType": "created_at",
-                "dateTimeType": "DATETIME",
-                "datetimeLoading": false,
-                "extrapolate": true,
-                "format": "table",
-                "formattedQuery": "",
-                "intervalFactor": 1,
-                "query": "SELECT\n  bucket,\n  ((bounced_sessions / all_sessions) * 100) as bounce_rate,\n  all_sessions\nFROM (\n  SELECT\n      intDiv(metricInLandingPage, $bucket_size) * $bucket_size AS bucket,\n      countIf(maxLength = 1) AS bounced_sessions,\n      count() AS all_sessions\n  FROM\n  (\n      SELECT\n          session_id,\n          max(session_length) AS maxLength,\n          argMin($metric, created_at) AS metricInLandingPage\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND $metric > 0\n        $conditionalTest(AND device_type in($device_type), $device_type)\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY session_id\n  )\n  GROUP BY bucket\n  ORDER BY bucket ASC\n)\n",
-                "rawQuery": "",
-                "refId": "A",
-                "round": "0s",
-                "skip_comments": true,
-                "table": "basicrum_friends_webperf_rum_events",
-                "tableLoading": false
-              }
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "table",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT\n  bucket,\n  ((bounced_sessions / all_sessions) * 100) as bounce_rate,\n  all_sessions\nFROM (\n  SELECT\n      intDiv(metricInLandingPage, $bucket_size) * $bucket_size AS bucket,\n      countIf(maxLength = 1) AS bounced_sessions,\n      count() AS all_sessions\n  FROM\n  (\n      SELECT\n          session_id,\n          max(session_length) AS maxLength,\n          argMin($metric, created_at) AS metricInLandingPage\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND $metric > 0\n        $conditionalTest(AND device_type in($device_type), $device_type)\n        AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n      GROUP BY session_id\n  )\n  GROUP BY bucket\n  ORDER BY bucket ASC\n)\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
             ],
             "title": "Bounce rate vs Metric",
             "transformations": [],
             "transparent": true,
             "type": "ae3e-plotly-panel"
-          },
-          {
+        },
+        {
             "datasource": {
-              "type": "vertamedia-clickhouse-datasource",
-              "uid": "A0Wl5Mc4z"
+                "type": "vertamedia-clickhouse-datasource",
+                "uid": "A0Wl5Mc4z"
             },
             "fieldConfig": {
-              "defaults": {
-                "color": {
-                  "mode": "thresholds"
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "displayMode": "auto",
+                        "inspect": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
                 },
-                "custom": {
-                  "align": "auto",
-                  "displayMode": "auto",
-                  "inspect": false
-                },
-                "mappings": [],
-                "thresholds": {
-                  "mode": "absolute",
-                  "steps": [
+                "overrides": [
                     {
-                      "color": "green",
-                      "value": null
+                        "matcher": {
+                            "id": "byName",
+                            "options": "#"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.width",
+                                "value": 31
+                            }
+                        ]
                     },
                     {
-                      "color": "red",
-                      "value": 80
-                    }
-                  ]
-                }
-              },
-              "overrides": [
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "#"
-                  },
-                  "properties": [
+                        "matcher": {
+                            "id": "byName",
+                            "options": "visits"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.width",
+                                "value": 214
+                            }
+                        ]
+                    },
                     {
-                      "id": "custom.width",
-                      "value": 31
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "visits"
-                  },
-                  "properties": [
+                        "matcher": {
+                            "id": "byName",
+                            "options": "url"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.width",
+                                "value": 682
+                            }
+                        ]
+                    },
                     {
-                      "id": "custom.width",
-                      "value": 214
+                        "matcher": {
+                            "id": "byName",
+                            "options": "75th_percentile"
+                        },
+                        "properties": [
+                            {
+                                "id": "custom.width",
+                                "value": 135
+                            }
+                        ]
                     }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "url"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 682
-                    }
-                  ]
-                },
-                {
-                  "matcher": {
-                    "id": "byName",
-                    "options": "75th_percentile"
-                  },
-                  "properties": [
-                    {
-                      "id": "custom.width",
-                      "value": 135
-                    }
-                  ]
-                }
-              ]
+                ]
             },
             "gridPos": {
-              "h": 10,
-              "w": 12,
-              "x": 12,
-              "y": 8
+                "h": 10,
+                "w": 12,
+                "x": 12,
+                "y": 8
             },
             "id": 4,
             "options": {
-              "footer": {
-                "fields": "",
-                "reducer": [
-                  "sum"
-                ],
-                "show": false
-              },
-              "showHeader": true,
-              "sortBy": []
+                "footer": {
+                    "fields": "",
+                    "reducer": [
+                        "sum"
+                    ],
+                    "show": false
+                },
+                "showHeader": true,
+                "sortBy": [],
+                "layout": {},
+                "script": "",
+                "onclick": ""
             },
             "targets": [
-              {
-                "database": "default",
-                "datasource": {
-                  "type": "vertamedia-clickhouse-datasource",
-                  "uid": "A0Wl5Mc4z"
-                },
-                "dateColDataType": "event_date",
-                "dateLoading": false,
-                "dateTimeColDataType": "created_at",
-                "dateTimeType": "DATETIME",
-                "datetimeLoading": false,
-                "extrapolate": true,
-                "format": "table",
-                "formattedQuery": "",
-                "intervalFactor": 1,
-                "query": "SELECT\n  rowNumberInAllBlocks() + 1 as \"#\",\n  quantile(0.75)($metric) as 75th_percentile,\n  url\n\nFROM $table\n\nWHERE \n  $timeFilter\n  AND event_type = 'visit_page'\n  AND url IN(SELECT url\n          FROM(\n            SELECT\n              url,\n              count() as count\n            FROM $table\n            WHERE \n              $timeFilter\n              AND event_type = 'visit_page'\n              AND visibility_state = 'visible'\n              AND session_length = 1\n              $conditionalTest(AND device_type in($device_type), $device_type)\n              $conditionalTest(AND hostname in($hostname), $hostname)\n            GROUP BY url\n            ORDER BY count DESC\n            LIMIT 100\n          )\n      )\n  AND event_type = 'visit_page'\n  AND visibility_state = 'visible'\n  AND session_length = 1\n  $conditionalTest(AND device_type in($device_type), $device_type)\n  $conditionalTest(AND hostname in($hostname), $hostname)\n\nGROUP BY url\nORDER BY 75th_percentile DESC\n\n",
-                "rawQuery": "",
-                "refId": "A",
-                "round": "0s",
-                "skip_comments": true,
-                "table": "basicrum_friends_webperf_rum_events",
-                "tableLoading": false
-              }
+                {
+                    "database": "default",
+                    "datasource": {
+                        "type": "vertamedia-clickhouse-datasource",
+                        "uid": "A0Wl5Mc4z"
+                    },
+                    "dateColDataType": "event_date",
+                    "dateLoading": false,
+                    "dateTimeColDataType": "created_at",
+                    "dateTimeType": "DATETIME",
+                    "datetimeLoading": false,
+                    "extrapolate": true,
+                    "format": "table",
+                    "formattedQuery": "",
+                    "intervalFactor": 1,
+                    "query": "SELECT\n  rowNumberInAllBlocks() + 1 as \"#\",\n  quantile(0.75)($metric) as 75th_percentile,\n  url\n\nFROM $table\n\nWHERE \n  $timeFilter\n  AND event_type = 'visit_page'\n  AND url IN(SELECT url\n          FROM(\n            SELECT\n              url,\n              count() as count\n            FROM $table\n            WHERE \n              $timeFilter\n              AND event_type = 'visit_page'\n              AND visibility_state = 'visible'\n              AND session_length = 1\n              $conditionalTest(AND device_type in($device_type), $device_type)\n              AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n            GROUP BY url\n            ORDER BY count DESC\n            LIMIT 100\n          )\n      )\n  AND event_type = 'visit_page'\n  AND visibility_state = 'visible'\n  AND session_length = 1\n  $conditionalTest(AND device_type in($device_type), $device_type)\n  AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n\nGROUP BY url\nORDER BY 75th_percentile DESC\n\n",
+                    "rawQuery": "",
+                    "refId": "A",
+                    "round": "0s",
+                    "skip_comments": true,
+                    "table": "basicrum_friends_webperf_rum_events",
+                    "tableLoading": false
+                }
             ],
             "title": "75th percentile - 100 slowest Landing Pages",
+            "transformations": [],
+            "transparent": true,
             "type": "table"
-          }
+        }
     ],
     "refresh": false,
     "schemaVersion": 37,
@@ -792,7 +958,7 @@
                 "queryValue": "",
                 "skipUrlSync": false,
                 "type": "custom"
-            }            
+            }
         ]
     },
     "time": {

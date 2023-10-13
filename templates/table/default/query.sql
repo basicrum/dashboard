@@ -20,7 +20,7 @@ WHERE
               AND visibility_state = 'visible'
               AND session_length = 1
               $conditionalTest(AND device_type in($device_type), $device_type)
-              $conditionalTest(AND hostname in($hostname), $hostname)
+              AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
             GROUP BY url
             ORDER BY count DESC
             LIMIT 100
@@ -30,7 +30,7 @@ WHERE
   AND visibility_state = 'visible'
   AND session_length = 1
   $conditionalTest(AND device_type in($device_type), $device_type)
-  $conditionalTest(AND hostname in($hostname), $hostname)
+  AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
 
 GROUP BY url
 ORDER BY 75th_percentile DESC

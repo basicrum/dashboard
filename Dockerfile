@@ -1,17 +1,7 @@
 FROM grafana/grafana:10.0.5
 
-# Adding datasources
-ADD build/datasources /etc/grafana/provisioning/datasources
-
-# Adding dashboars
-ADD build/dashboards /etc/grafana/provisioning/dashboards
-
-
 ###### Customization ########################################
 USER root
-
-## Set Home Dashboard
-ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/General.json
 
 # Replace Favicon
 COPY artefacts/img/basicrum_logo_fav32.png /usr/share/grafana/public/img/fav32.png
@@ -48,3 +38,19 @@ RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|..createEle
 
 RUN /bin/bash -c 'grafana cli plugins install ae3e-plotly-panel 0.5.0'
 RUN /bin/bash -c 'grafana cli plugins install vertamedia-clickhouse-datasource 2.5.1'
+RUN /bin/bash -c 'grafana cli plugins install volkovlabs-form-panel 3.2.1'
+
+# Adding basicrum-api-datasource
+ADD basicrum-api-datasource/dist /var/lib/grafana/plugins/basicrum-api-datasource
+
+## Set Home Dashboard
+ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/Hostnames.json
+
+# Adding datasources
+ADD build/datasources /etc/grafana/provisioning/datasources
+
+# Adding dashboards
+ADD build/dashboards /etc/grafana/provisioning/dashboards
+
+# Replace grafana.ini
+ADD grafana/grafana.ini /etc/grafana/grafana.ini

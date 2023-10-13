@@ -1,0 +1,21 @@
+{
+    "options": {
+        "elements": [
+            {
+                "hidden": false,
+                "id": "hostname",
+                "labelWidth": 10,
+                "section": "",
+                "title": "Hostname",
+                "tooltip": "",
+                "type": "disabled",
+                "uid": "d7dd22e57-5bff-47b9-b56e-c4565241d665",
+                "unit": "",
+                "value": ""
+            }
+        ],
+        "initial": {
+            "code": "const elementName = \"hostname\";\nlet elementValue = \"$hostname\";\nif (elementValue.indexOf(\"{\") == 0) {\n  elementValue = \"\";\n}\nif (!elementValue) {\n  elementValue = \"Please, select hostname from filter!\";\n}\nconst element = elements.find((element) => element.id === elementName);\nelement.value = elementValue;\nsetInitial({ elementName: \"\" });\n"
+        }
+    }
+}

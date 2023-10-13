@@ -29,3 +29,7 @@ test('build Metrics dashboard should be as expected', () => {
 test('build Summary dashboard should be as expected', () => {
     runTest('Summary')
 });
+
+test('build Hostnames dashboard should be as expected', () => {
+    runTest('Hostnames')
+});

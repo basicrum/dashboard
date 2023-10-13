@@ -20,7 +20,7 @@ FROM (
         AND visibility_state = 'visible'
         AND $metric > 0
         $conditionalTest(AND device_type in($device_type), $device_type)
-        $conditionalTest(AND hostname in($hostname), $hostname)
+        AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
       GROUP BY session_id
   )
   GROUP BY bucket

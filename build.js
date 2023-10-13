@@ -7,7 +7,7 @@ const options = {
     filterMap: {},
 }
 
-const dashboards = ['General', 'Metrics', 'Summary'];
+const dashboards = ['General', 'Metrics', 'Summary', 'Hostnames'];
 for (const dashboard of dashboards) {
     builder.build(dashboard, options);
 }
