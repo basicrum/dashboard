@@ -12,3 +12,7 @@ WHERE
     AND browser_name = '$$browser_name'
     AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
 GROUP BY t
+ORDER BY t
+WITH FILL
+FROM toDate($from)
+TO toDate($to)

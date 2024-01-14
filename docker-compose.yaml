@@ -5,19 +5,19 @@ services:
     build: .
     ports:
       - 3200:3000
-    environment:
-      GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER}
-      GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD}
-      CLICKHOUSE_USER: ${CLICKHOUSE_USER}
-      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
-      CLICKHOUSE_CONNECTION_URL: ${CLICKHOUSE_CONNECTION_URL}
-      CLICKHOUSE_CONNECTION_PORT:  ${CLICKHOUSE_CONNECTION_PORT}
+    env_file:
+      - .env
+    volumes:
+      # Mount provisioning related stuff
+      - ./build/datasources:/etc/grafana/provisioning/datasources
+      - ./build/dashboards:/etc/grafana/provisioning/dashboards
 
   basicrum_clickhouse_server_build:
     image: clickhouse/clickhouse-server:22.8
     volumes:
       - ./clickhouse/data:/var/lib/clickhouse
       - ./clickhouse/users.d/:/etc/clickhouse-server/users.d/
+      - ./init-schema/:/docker-entrypoint-initdb.d/
 
     ulimits:
       nproc: 65535

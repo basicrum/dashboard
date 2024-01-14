@@ -71,6 +71,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -236,7 +238,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 2500) as good,\n    countIf(largest_contentful_paint > 2500 AND largest_contentful_paint <= 4000) as needs_improvement,\n    countIf(largest_contentful_paint > 4000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 2500) as good,\n    countIf(largest_contentful_paint > 2500 AND largest_contentful_paint <= 4000) as needs_improvement,\n    countIf(largest_contentful_paint > 4000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -281,6 +283,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -450,7 +454,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(cumulative_layout_shift <= 0.1) as good,\n    countIf(cumulative_layout_shift > 0.1 AND cumulative_layout_shift <= 0.25) as needs_improvement,\n    countIf(cumulative_layout_shift > 0.25) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND cumulative_layout_shift is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(cumulative_layout_shift <= 0.1) as good,\n    countIf(cumulative_layout_shift > 0.1 AND cumulative_layout_shift <= 0.25) as needs_improvement,\n    countIf(cumulative_layout_shift > 0.25) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND cumulative_layout_shift is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -495,6 +499,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -660,7 +666,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_byte_duration <= 800) as good,\n    countIf(first_byte_duration > 800 AND first_byte_duration <= 1800) as needs_improvement,\n    countIf(first_byte_duration > 1800) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND first_byte_duration is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_byte_duration <= 800) as good,\n    countIf(first_byte_duration > 800 AND first_byte_duration <= 1800) as needs_improvement,\n    countIf(first_byte_duration > 1800) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND first_byte_duration is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -705,6 +711,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -870,7 +878,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_contentful_paint <= 1800) as good,\n    countIf(first_contentful_paint > 1800 AND first_contentful_paint <= 3000) as needs_improvement,\n    countIf(first_contentful_paint > 3000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND first_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_contentful_paint <= 1800) as good,\n    countIf(first_contentful_paint > 1800 AND first_contentful_paint <= 3000) as needs_improvement,\n    countIf(first_contentful_paint > 3000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND first_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -915,6 +923,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -1074,7 +1084,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_input_delay <= 100) as good,\n    countIf(first_input_delay > 100 AND first_input_delay <= 300) as needs_improvement,\n    countIf(first_input_delay > 300) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_input_delay <= 100) as good,\n    countIf(first_input_delay > 100 AND first_input_delay <= 300) as needs_improvement,\n    countIf(first_input_delay > 300) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome Mobile'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -1132,6 +1142,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -1297,7 +1309,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 2500) as good,\n    countIf(largest_contentful_paint > 2500 AND largest_contentful_paint <= 4000) as needs_improvement,\n    countIf(largest_contentful_paint > 4000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 2500) as good,\n    countIf(largest_contentful_paint > 2500 AND largest_contentful_paint <= 4000) as needs_improvement,\n    countIf(largest_contentful_paint > 4000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -1342,6 +1354,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -1511,7 +1525,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(cumulative_layout_shift <= 0.1) as good,\n    countIf(cumulative_layout_shift > 0.1 AND cumulative_layout_shift <= 0.25) as needs_improvement,\n    countIf(cumulative_layout_shift > 0.25) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND cumulative_layout_shift is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(cumulative_layout_shift <= 0.1) as good,\n    countIf(cumulative_layout_shift > 0.1 AND cumulative_layout_shift <= 0.25) as needs_improvement,\n    countIf(cumulative_layout_shift > 0.25) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND cumulative_layout_shift is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -1556,6 +1570,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -1721,7 +1737,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_byte_duration <= 800) as good,\n    countIf(first_byte_duration > 800 AND first_byte_duration <= 1800) as needs_improvement,\n    countIf(first_byte_duration > 1800) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND first_byte_duration is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_byte_duration <= 800) as good,\n    countIf(first_byte_duration > 800 AND first_byte_duration <= 1800) as needs_improvement,\n    countIf(first_byte_duration > 1800) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND first_byte_duration is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -1766,6 +1782,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -1931,7 +1949,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 1800) as good,\n    countIf(largest_contentful_paint > 1800 AND largest_contentful_paint <= 3000) as needs_improvement,\n    countIf(largest_contentful_paint > 3000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(largest_contentful_paint <= 1800) as good,\n    countIf(largest_contentful_paint > 1800 AND largest_contentful_paint <= 3000) as needs_improvement,\n    countIf(largest_contentful_paint > 3000) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND largest_contentful_paint is not null\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -1976,6 +1994,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
@@ -2135,7 +2155,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_input_delay <= 100) as good,\n    countIf(first_input_delay > 100 AND first_input_delay <= 300) as needs_improvement,\n    countIf(first_input_delay > 300) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t, \n    countIf(first_input_delay <= 100) as good,\n    countIf(first_input_delay > 100 AND first_input_delay <= 300) as needs_improvement,\n    countIf(first_input_delay > 300) as poor\n\nFROM $table\n\nWHERE\n    $timeFilter\n    AND event_type = 'visit_page'\n    AND browser_name = 'Chrome'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t\nORDER BY t\nWITH FILL\nFROM toDate($from)\nTO toDate($to)",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",

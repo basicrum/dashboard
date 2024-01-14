@@ -1,0 +1,123 @@
+const fetch = require('node-fetch');
+
+const params = {
+    "mob.etype": "4g",
+    "mob.dl": "7.2",
+    "mob.rtt": "100",
+    "c.e": "lp7es7qn",
+    "c.tti.m": "lt",
+    "pt.lcp": "2730",
+    "rt.start": "navigation",
+    "vrt.bmr": "2708%2C3%2C1%2C1",
+    "rt.tstart": "1700515098671",
+    "rt.bstart": "1700515101486",
+    "rt.blstart": "1700515101379",
+    "rt.end": "1700515101494",
+    "t_resp": "2280",
+    "t_page": "543",
+    "t_done": "2823",
+    "t_other": "boomerang%7C7%2Cboomr_fb%7C2815%2Cboomr_ld%7C2708%2Cboomr_lat%7C107",
+    "rt.tt": "2823",
+    "rt.obo": "0",
+    "pt.fp": "2730",
+    "pt.fcp": "2730",
+    "nt_nav_st": "1700515098671",
+    "nt_red_st": "1700515098677",
+    "nt_red_end": "1700515100544",
+    "nt_fet_st": "1700515100544",
+    "nt_dns_st": "1700515100544",
+    "nt_dns_end": "1700515100544",
+    "nt_con_st": "1700515100544",
+    "nt_con_end": "1700515100544",
+    "nt_req_st": "1700515100545",
+    "nt_res_st": "1700515100951",
+    "nt_res_end": "1700515100952",
+    "nt_domloading": "1700515100955",
+    "nt_domint": "1700515101379",
+    "nt_domcontloaded_st": "1700515101379",
+    "nt_domcontloaded_end": "1700515101397",
+    "nt_domcomp": "1700515101493",
+    "nt_load_st": "1700515101493",
+    "nt_load_end": "1700515101494",
+    "nt_ssl_st": "1700515100544",
+    "nt_enc_size": "12686",
+    "nt_dec_size": "46328",
+    "nt_trn_size": "12986",
+    "nt_protocol": "h2",
+    "nt_first_paint": "1700515101401",
+    "nt_red_cnt": "1",
+    "nt_nav_type": "0",
+    "u": "https://calendar.perfplanet.com/",
+    "v": "1.737.60",
+    "sv": "14",
+    "vsm": "p",
+    "rt.si": "8f761221-e36e-4a8b-91d0-bbd9cd6a4bbd-s4fxuj",
+    "rt.ss": "1700515098671",
+    "rt.sl": "1",
+    "vis.st": "visible",
+    "ua.plt": "Linux%20x86_64",
+    "ua.vnd": "Google%20Inc.",
+    "pid": "q7ompqto",
+    "n": "1",
+    "c.l": "22d8%2Cx6q%2Cy70%7C22k6%2Cx5g%2Cy3k%7C243q%2Cx88%2Cyeo%7C24ao%2Cxkf%2Cyhl%7C24hm%2Cxve%2Cyj4",
+    "c.t.fps": "07*j*65*a*64045*a*65*4*63",
+    "c.t.inter": "0*4*01",
+    "c.t.mouse": "0.j8..1s..2y._2*j*0.bg..4y..6t..3x..7a.p",
+    "c.t.mousepct": "20033030603*k*00200912071401",
+    "c.tti.vr": "2731",
+    "c.tti": "2731",
+    "c.f": "57",
+    "c.f.d": "5052",
+    "c.f.m": "3",
+    "c.f.l": "1",
+    "c.f.s": "lp7es9wx",
+    "c.m.p": "108",
+    "c.m.n": "2190",
+    "c.i.a": "3",
+    "c.fid": "3",
+    "c.ttfi": "3258.89990234375",
+    "dom.res": "37",
+    "dom.doms": "1",
+    "mem.total": "11471320",
+    "mem.limit": "4294705152",
+    "mem.used": "9987268",
+    "mem.lsln": "1",
+    "mem.ssln": "0",
+    "mem.lssz": "548",
+    "mem.sssz": "2",
+    "scr.xy": "1920x1080",
+    "scr.bpp": "24%2F24",
+    "scr.orn": "0%2Flandscape-primary",
+    "cpu.cnc": "8",
+    "dom.ln": "503",
+    "dom.sz": "44904",
+    "dom.ck": "163",
+    "dom.img": "34",
+    "dom.img.uniq": "30",
+    "dom.script": "7",
+    "dom.script.ext": "3",
+    "dom.iframe": "0",
+    "dom.link": "9",
+    "dom.link.css": "2",
+    "sb": "1"
+}
+
+console.log(params);
+
+var formBody = [];
+for (var property in params) {
+  var encodedKey = encodeURIComponent(property);
+  var encodedValue = encodeURIComponent(params[property]);
+  formBody.push(encodedKey + "=" + encodedValue);
+}
+formBody = formBody.join("&");
+
+console.log(formBody);
+
+fetch('https://ocetinssl.basicrum.com/beacon/catcher', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+  },
+  body: formBody
+})

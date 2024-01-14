@@ -345,7 +345,7 @@
                     }
                 },
                 "onclick": "",
-                "script": "console.log(data);\n\nvar xValue = data.series[0].fields[0].values.buffer;\n\nvar yValue = data.series[0].fields[1].values.buffer;\n\nvar trace1 = {\n    x: xValue,\n    y: yValue,\n    type: \"bar\",\n    textposition: \"auto\",\n    hoverinfo: \"none\",\n    marker: {\n        opacity: 0.6,\n        line: {\n            color: \"rgb(8,48,107)\",\n            width: 1.5,\n        },\n    },\n};\n\nreturn { data: [trace1], layout: { title: \"\" } };\n"
+                "script": "var xValue = data.series[0].fields[0].values.buffer;\n\nvar yValue = data.series[0].fields[1].values.buffer;\n\nvar trace1 = {\n    x: xValue,\n    y: yValue,\n    type: \"bar\",\n    textposition: \"auto\",\n    hoverinfo: \"none\",\n    marker: {\n        opacity: 0.6,\n        line: {\n            color: \"rgb(8,48,107)\",\n            width: 1.5,\n        },\n    },\n};\n\nreturn { data: [trace1], layout: { title: \"\" } };\n"
             },
             "targets": [
                 {
@@ -536,6 +536,8 @@
                         }
                     },
                     "mappings": [],
+                    "max": 1,
+                    "min": 0,
                     "thresholds": {
                         "mode": "absolute",
                         "steps": [
