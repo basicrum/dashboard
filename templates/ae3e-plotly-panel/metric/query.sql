@@ -9,7 +9,7 @@ WHERE
     AND $metric > 0
     AND $metric < 10000
     AND event_type = 'visit_page'
-    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
+    $conditionalTest(AND hostname in($hostname), $hostname)
     $conditionalTest(AND device_type in($device_type), $device_type)
 
 GROUP BY metric_value

@@ -224,7 +224,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    intDiv($metric, $bucket_size) * $bucket_size as metric_value,\n    sum(toUInt64(1)) as count\n    \nFROM $table\n\nWHERE\n    $timeFilter\n    AND $metric > 0\n    AND $metric < 10000\n    AND event_type = 'visit_page'\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n    $conditionalTest(AND device_type in($device_type), $device_type)\n\nGROUP BY metric_value\nORDER BY metric_value\n",
+                    "query": "SELECT\n    intDiv($metric, $bucket_size) * $bucket_size as metric_value,\n    sum(toUInt64(1)) as count\n    \nFROM $table\n\nWHERE\n    $timeFilter\n    AND $metric > 0\n    AND $metric < 10000\n    AND event_type = 'visit_page'\n    $conditionalTest(AND hostname in($hostname), $hostname)\n    $conditionalTest(AND device_type in($device_type), $device_type)\n\nGROUP BY metric_value\nORDER BY metric_value\n",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -400,7 +400,7 @@
                     "format": "time_series",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n    toDate(event_date) as t,\n    quantile(0.75)($metric) as metic_75th_percentile\n\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n    toDate(event_date) as t,\n    quantile(0.75)($metric) as metic_75th_percentile\n\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    $conditionalTest(AND hostname in($hostname), $hostname)\nGROUP BY t",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -424,7 +424,7 @@
                     "formattedQuery": "",
                     "hide": false,
                     "intervalFactor": 1,
-                    "query": "SELECT\n  toDate(event_date) as t,\n  count() as visits\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\nGROUP BY t",
+                    "query": "SELECT\n  toDate(event_date) as t,\n  count() as visits\n\nFROM $table\n\nWHERE t BETWEEN toDateTime($from) AND toDateTime($to)\n    AND event_type = 'visit_page'\n    $conditionalTest(AND device_type in($device_type), $device_type)\n    $conditionalTest(AND hostname in($hostname), $hostname)\nGROUP BY t",
                     "rawQuery": "",
                     "refId": "B",
                     "round": "0s",
@@ -619,7 +619,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n  bucket,\n  ((bounced_sessions / all_sessions) * 100) as bounce_rate,\n  all_sessions\nFROM (\n  SELECT\n      intDiv(metricInLandingPage, $bucket_size) * $bucket_size AS bucket,\n      countIf(maxLength = 1) AS bounced_sessions,\n      count() AS all_sessions\n  FROM\n  (\n      SELECT\n          session_id,\n          max(session_length) AS maxLength,\n          argMin($metric, created_at) AS metricInLandingPage\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND $metric > 0\n        $conditionalTest(AND device_type in($device_type), $device_type)\n        AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n      GROUP BY session_id\n  )\n  GROUP BY bucket\n  ORDER BY bucket ASC\n)\n",
+                    "query": "SELECT\n  bucket,\n  ((bounced_sessions / all_sessions) * 100) as bounce_rate,\n  all_sessions\nFROM (\n  SELECT\n      intDiv(metricInLandingPage, $bucket_size) * $bucket_size AS bucket,\n      countIf(maxLength = 1) AS bounced_sessions,\n      count() AS all_sessions\n  FROM\n  (\n      SELECT\n          session_id,\n          max(session_length) AS maxLength,\n          argMin($metric, created_at) AS metricInLandingPage\n      FROM $table\n      WHERE \n        $timeFilter\n        AND event_type = 'visit_page'\n        AND visibility_state = 'visible'\n        AND $metric > 0\n        $conditionalTest(AND device_type in($device_type), $device_type)\n        $conditionalTest(AND hostname in($hostname), $hostname)\n      GROUP BY session_id\n  )\n  GROUP BY bucket\n  ORDER BY bucket ASC\n)\n",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -751,7 +751,7 @@
                     "format": "table",
                     "formattedQuery": "",
                     "intervalFactor": 1,
-                    "query": "SELECT\n  rowNumberInAllBlocks() + 1 as \"#\",\n  quantile(0.75)($metric) as 75th_percentile,\n  url\n\nFROM $table\n\nWHERE \n  $timeFilter\n  AND event_type = 'visit_page'\n  AND url IN(SELECT url\n          FROM(\n            SELECT\n              url,\n              count() as count\n            FROM $table\n            WHERE \n              $timeFilter\n              AND event_type = 'visit_page'\n              AND visibility_state = 'visible'\n              AND session_length = 1\n              $conditionalTest(AND device_type in($device_type), $device_type)\n              AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n            GROUP BY url\n            ORDER BY count DESC\n            LIMIT 100\n          )\n      )\n  AND event_type = 'visit_page'\n  AND visibility_state = 'visible'\n  AND session_length = 1\n  $conditionalTest(AND device_type in($device_type), $device_type)\n  AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))\n\nGROUP BY url\nORDER BY 75th_percentile DESC\n\n",
+                    "query": "SELECT\n  rowNumberInAllBlocks() + 1 as \"#\",\n  quantile(0.75)($metric) as 75th_percentile,\n  url\n\nFROM $table\n\nWHERE \n  $timeFilter\n  AND event_type = 'visit_page'\n  AND url IN(SELECT url\n          FROM(\n            SELECT\n              url,\n              count() as count\n            FROM $table\n            WHERE \n              $timeFilter\n              AND event_type = 'visit_page'\n              AND visibility_state = 'visible'\n              AND session_length = 1\n              $conditionalTest(AND device_type in($device_type), $device_type)\n              $conditionalTest(AND hostname in($hostname), $hostname)\n            GROUP BY url\n            ORDER BY count DESC\n            LIMIT 100\n          )\n      )\n  AND event_type = 'visit_page'\n  AND visibility_state = 'visible'\n  AND session_length = 1\n  $conditionalTest(AND device_type in($device_type), $device_type)\n  $conditionalTest(AND hostname in($hostname), $hostname)\n\nGROUP BY url\nORDER BY 75th_percentile DESC\n\n",
                     "rawQuery": "",
                     "refId": "A",
                     "round": "0s",
@@ -783,23 +783,32 @@
                         "$__all"
                     ]
                 },
-                "datasource": {
-                    "type": "vertamedia-clickhouse-datasource",
-                    "uid": "BRUMMUCSTARBUCS"
-                },
-                "definition": "SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' order by hostname",
-                "hide": 0,
+                "hide": 1,
                 "includeAll": true,
                 "label": "Hostname",
-                "multi": false,
+                "multi": true,
                 "name": "hostname",
-                "options": [],
-                "query": "SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' order by hostname",
-                "refresh": 1,
-                "regex": "",
+                "options": [
+                    {
+                        "selected": true,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    {
+                        "selected": false,
+                        "text": "example1.com",
+                        "value": "example1.com"
+                    },
+                    {
+                        "selected": false,
+                        "text": "example2.com",
+                        "value": "example2.com"
+                    }
+                ],
+                "query": "example1.com : example1.com, example2.com : example2.com",
+                "queryValue": "",
                 "skipUrlSync": false,
-                "sort": 0,
-                "type": "query"
+                "type": "custom"
             },
             {
                 "current": {
