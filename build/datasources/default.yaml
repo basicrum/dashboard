@@ -13,10 +13,3 @@ datasources:
       basicAuthPassword: "$CLICKHOUSE_PASSWORD"
     secureJsonFields:
       basicAuthPassword: false
-  - name: Basic RUM API Proxy
-    uid: APIUID
-    type: basicrum-api-datasource
-    jsonData:
-      url: "$BASICRUM_API_DATASOURCE_URL"
-    secureJsonData:
-      apiToken: "$BASICRUM_API_DATASOURCE_TOKEN"

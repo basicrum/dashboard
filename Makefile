@@ -42,7 +42,3 @@ jump_clickhouse: ## Jump to the ClickHouse container
 
 jump_grafana: ## Jump to the Grafana container
 	docker-compose -f ${dc_path} exec ${grafana_container} bash
-
-.PHONY: docker/local/build
-docker/local/build:
-	docker build -t dashboard .
