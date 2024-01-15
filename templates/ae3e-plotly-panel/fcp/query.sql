@@ -10,7 +10,7 @@ WHERE
     AND value < 10000
     AND event_type = 'visit_page'
     AND browser_name = '$$browser_name'
-    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
+    $conditionalTest(AND hostname in($hostname), $hostname)
 
 GROUP BY value
 ORDER BY value

@@ -19,7 +19,8 @@ if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
 }
 
-const dashboards = ['General', 'Metrics', 'Summary', 'Hostnames'];
+const dashboards = ['General', 'Metrics', 'Summary'];
+
 for (const dashboard of dashboards) {
     builder.build(dashboard, options);
 }

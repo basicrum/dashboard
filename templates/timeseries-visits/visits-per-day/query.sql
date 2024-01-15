@@ -8,7 +8,7 @@ WHERE
     $timeFilter
 
     AND event_type = 'visit_page'
-    AND hostname in (SELECT hostname from webperf_rum_view_hostnames where username = '${__user.login}' $conditionalTest(AND hostname in($hostname), $hostname))
+    $conditionalTest(AND hostname in($hostname), $hostname)
 
 GROUP BY t
 ORDER BY t
