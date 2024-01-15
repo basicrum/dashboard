@@ -47,7 +47,10 @@ ADD basicrum-api-datasource/dist /var/lib/grafana/plugins/basicrum-api-datasourc
 ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/Hostnames.json
 
 # Adding datasources
-ADD build/datasources /etc/grafana/provisioning/datasources
+ADD templates/datasources /etc/grafana/provisioning/datasources
+
+# Adding dashboards yaml
+ADD templates/dashboards /etc/grafana/provisioning/dashboards
 
 # Adding dashboards
 ADD build/dashboards /etc/grafana/provisioning/dashboards
