@@ -44,7 +44,10 @@ RUN /bin/bash -c 'grafana cli plugins install volkovlabs-form-panel 3.2.1'
 ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/General.json
 
 # Adding datasources
-ADD build/datasources /etc/grafana/provisioning/datasources
+ADD templates/datasources /etc/grafana/provisioning/datasources
+
+# Adding dashboards yaml
+ADD templates/dashboards /etc/grafana/provisioning/dashboards
 
 # Adding dashboards
 ADD build/dashboards /etc/grafana/provisioning/dashboards
