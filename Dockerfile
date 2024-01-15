@@ -40,11 +40,8 @@ RUN /bin/bash -c 'grafana cli plugins install ae3e-plotly-panel 0.5.0'
 RUN /bin/bash -c 'grafana cli plugins install vertamedia-clickhouse-datasource 2.5.1'
 RUN /bin/bash -c 'grafana cli plugins install volkovlabs-form-panel 3.2.1'
 
-# Adding basicrum-api-datasource
-ADD basicrum-api-datasource/dist /var/lib/grafana/plugins/basicrum-api-datasource
-
 ## Set Home Dashboard
-ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/Hostnames.json
+ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/General.json
 
 # Adding datasources
 ADD build/datasources /etc/grafana/provisioning/datasources
