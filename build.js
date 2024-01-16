@@ -21,6 +21,20 @@ if (!fs.existsSync(dir)){
 
 const dashboards = ['General', 'Metrics', 'Summary'];
 
+var summaryList = [];
 for (const dashboard of dashboards) {
-    builder.build(dashboard, options);
+    var summary = builder.build(dashboard, options);
+    summaryList.push(summary);
+}
+
+console.log("");
+console.log("SUMMARY");
+console.log("");
+console.log("dashboards: " + summaryList.length);
+console.log("");
+for (const summary of summaryList) {
+    console.log("dashboard: " + summary.name);
+    console.log("panels: " + summary.panels);
+    console.log("path: " + summary.path);
+    console.log("");
 }
