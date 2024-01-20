@@ -4,12 +4,19 @@ datasources:
   - name: Altinity plugin for ClickHouse
     uid: BRUMMUCSTARBUCS
     type: vertamedia-clickhouse-datasource
-    url: http://basicrum_clickhouse_server:8123
+    url: $CLICKHOUSE_CONNECTION_URL
     basicAuth: true
-    basicAuthUser: basicrumreader
+    basicAuthUser: $CLICKHOUSE_USER
     jsonData:
       tlsSkipVerify: false
     secureJsonData:
-      basicAuthPassword: "testpassword"
+      basicAuthPassword: "$CLICKHOUSE_PASSWORD"
     secureJsonFields:
       basicAuthPassword: false
+  - name: Basic RUM API Proxy
+    uid: APIUID
+    type: basicrum-api-datasource
+    jsonData:
+      url: "$BASICRUM_API_DATASOURCE_URL"
+    secureJsonData:
+      apiToken: "$BASICRUM_API_DATASOURCE_TOKEN"
