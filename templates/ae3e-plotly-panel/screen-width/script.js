@@ -1,5 +1,3 @@
-console.log(data);
-
 var xValue = data.series[0].fields[0].values.buffer;
 
 var yValue = data.series[0].fields[1].values.buffer;
