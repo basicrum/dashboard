@@ -1,6 +1,7 @@
 var fs = require('fs');
 
 const DashboardBuilder = require('./lib/DashboardBuilder');
+const { exit } = require('process');
 const builder = new DashboardBuilder()
 
 const options = {
@@ -9,14 +10,49 @@ const options = {
     filterMap: {},
 }
 
-var dir = './build';
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+const buildDir = './build';
+
+try {
+    if(fs.existsSync(buildDir)) {
+        fs.rmSync(buildDir, { recursive: true, force: true });
+        console.log("Removed the build folder.");
+    }
+} catch(e) {
+    console.error(e);
+    exit(1);
 }
 
-dir = './build/dashboards';
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
+if (!fs.existsSync(buildDir)){
+    fs.mkdirSync(buildDir);
+    console.log("Created build folder.");
+}
+
+const dashboardsDir = './build/dashboards';
+if (!fs.existsSync(dashboardsDir)){
+    fs.mkdirSync(dashboardsDir);
+    console.log("Created build/dashboards folder.");
+}
+
+const datasourcesDir = './build/datasources';
+if (!fs.existsSync(datasourcesDir)){
+    fs.mkdirSync(datasourcesDir);
+    console.log("Created build/datasources folder.");
+}
+
+try {
+    fs.copyFileSync("./templates/dashboards/General.yaml", "./build/dashboards/General.yaml");
+    console.log("Added build/dashboards/General.yaml");
+} catch(e) {
+    console.error(e);
+    exit(1);
+}
+
+try {
+    fs.copyFileSync("./templates/datasources/default.yaml", "./build/datasources/default.yaml");
+    console.log("Added build/datasources/default.yaml");
+} catch(e) {
+    console.error(e);
+    exit(1);
 }
 
 const dashboards = ['General', 'Metrics', 'Summary'];
