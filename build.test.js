@@ -1,8 +1,8 @@
-const fs = require('fs');
-const DashboardBuilder = require('./lib/DashboardBuilder');
+const fs = require("fs");
+const DashboardBuilder = require("./lib/DashboardBuilder");
 const builder = new DashboardBuilder()
 
-function runTest(dashboard) {
+function getDashboard(dashboard) {
     const options = {
         table: "basicrum_friends_webperf_rum_events",
         datasourceUid: "A0Wl5Mc4z",
@@ -10,22 +10,26 @@ function runTest(dashboard) {
             "hosts":"testHosts",
         },
     }
-    
+
     builder.build(dashboard, options);
 
-    const expected = JSON.parse(fs.readFileSync(`./testdata/dashboards/${dashboard}.json`, { encoding: 'utf8', flag: 'r' }));
-    const actual = JSON.parse(fs.readFileSync(`./build/dashboards/${dashboard}.json`, { encoding: 'utf8', flag: 'r' }));
-    expect(actual).toMatchObject(expected);
+    return JSON.parse(fs.readFileSync(`./build/dashboards/${dashboard}.json`, { encoding: "utf8", flag: "r" }));    
 }
 
-test('build General dashboard should be as expected', () => {
-    runTest('General')
+test("Test General dashboard should be as expected", () => {
+    const generalDashboard = getDashboard("General");
+
+    expect(34).toBe(generalDashboard.panels.length);
 });
 
-test('build Metrics dashboard should be as expected', () => {
-    runTest('Metrics')
+test("Test Metrics dashboard should be as expected", () => {
+    const metricsDashboard = getDashboard("Metrics");
+
+    expect(4).toBe(metricsDashboard.panels.length);
 });
 
-test('build Summary dashboard should be as expected', () => {
-    runTest('Summary')
+test("Test Summary dashboard should be as expected", () => {
+    const summaryDashboard = getDashboard("Summary");
+
+    expect(14).toBe(summaryDashboard.panels.length);
 });

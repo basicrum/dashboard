@@ -1,7 +1,7 @@
-var fs = require('fs');
+var fs = require("fs");
 
-const DashboardBuilder = require('./lib/DashboardBuilder');
-const { exit } = require('process');
+const DashboardBuilder = require("./lib/DashboardBuilder");
+const { exit } = require("process");
 const builder = new DashboardBuilder()
 
 const options = {
@@ -10,7 +10,7 @@ const options = {
     filterMap: {},
 }
 
-const buildDir = './build';
+const buildDir = "./build";
 
 try {
     if(fs.existsSync(buildDir)) {
@@ -27,13 +27,13 @@ if (!fs.existsSync(buildDir)){
     console.log("Created build folder.");
 }
 
-const dashboardsDir = './build/dashboards';
+const dashboardsDir = "./build/dashboards";
 if (!fs.existsSync(dashboardsDir)){
     fs.mkdirSync(dashboardsDir);
     console.log("Created build/dashboards folder.");
 }
 
-const datasourcesDir = './build/datasources';
+const datasourcesDir = "./build/datasources";
 if (!fs.existsSync(datasourcesDir)){
     fs.mkdirSync(datasourcesDir);
     console.log("Created build/datasources folder.");
@@ -55,7 +55,7 @@ try {
     exit(1);
 }
 
-const dashboards = ['General', 'Metrics', 'Summary'];
+const dashboards = ["General", "Metrics", "Summary"];
 
 var summaryList = [];
 for (const dashboard of dashboards) {
