@@ -1,1 +1,0 @@
-ALTER TABLE default.webperf_rum_events ADD COLUMN mob_dl Nullable(UInt16) , ADD COLUMN mob_rtt Nullable(UInt16), ADD COLUMN mob_etype LowCardinality(Nullable(String))

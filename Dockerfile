@@ -38,19 +38,16 @@ RUN find /usr/share/grafana/public/build/ -name *.js -exec sed -i 's|..createEle
 
 RUN /bin/bash -c 'grafana cli plugins install ae3e-plotly-panel 0.5.0'
 RUN /bin/bash -c 'grafana cli plugins install vertamedia-clickhouse-datasource 2.5.1'
-RUN /bin/bash -c 'grafana cli plugins install volkovlabs-form-panel 3.2.1'
 
 ## Set Home Dashboard
 ENV GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/General.json
 
 # Adding datasources
-ADD templates/datasources /etc/grafana/provisioning/datasources
+ADD templates/datasources/default.yaml /etc/grafana/provisioning/datasources/default.yaml
 
 # Adding dashboards yaml
-ADD templates/dashboards /etc/grafana/provisioning/dashboards
+ADD templates/dashboards/General.yaml /etc/grafana/provisioning/dashboards/General.yaml
 
 # Adding dashboards
 ADD build/dashboards /etc/grafana/provisioning/dashboards
 
-# Replace grafana.ini
-ADD grafana/grafana.ini /etc/grafana/grafana.ini

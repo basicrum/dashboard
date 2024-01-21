@@ -5,9 +5,8 @@ SHELL=bash
 UID := $(shell id -u)
 
 dc_path=./docker-compose.yaml
-dc_path_quick_test=./docker-compose.quick-test.yaml
 clickhouse_container=basicrum_clickhouse_server_build
-grafana_container=basicrum_grafana
+grafana_container=basicrum_grafana_build
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -18,14 +17,6 @@ up: ## Starts the environment
 
 down: ## Stops the environment
 	env UID=${UID}  docker-compose -f ${dc_path} down
-
-
-up_quick_test: ## Starts quick test environment
-	env UID=${UID} docker-compose -f ${dc_path_quick_test} build
-	env UID=${UID} docker-compose -f ${dc_path_quick_test} up
-
-down_quick_test: ## Stops quick test  environment
-	env UID=${UID}  docker-compose -f ${dc_path_quick_test} down
 
 restart: down up # Restart the environment
 
