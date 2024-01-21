@@ -2,7 +2,7 @@
 const fs = require('fs');
 const merge = require('deepmerge');
 
-const rootPath = __dirname + '/..';
+const rootPath = __dirname + '/../..';
 
 const panelMap = {
     "ae3e-plotly-panel": true,

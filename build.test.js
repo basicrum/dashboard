@@ -1,5 +1,5 @@
 const fs = require("fs");
-const DashboardBuilder = require("./lib/DashboardBuilder");
+const DashboardBuilder = require("./src/lib/DashboardBuilder");
 const builder = new DashboardBuilder()
 
 function getDashboard(dashboard) {

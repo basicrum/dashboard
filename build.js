@@ -1,6 +1,6 @@
 var fs = require("fs");
 
-const DashboardBuilder = require("./lib/DashboardBuilder");
+const DashboardBuilder = require("./src/lib/DashboardBuilder");
 const { exit } = require("process");
 const builder = new DashboardBuilder()
 

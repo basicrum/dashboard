@@ -1,7 +1,7 @@
 // Includes
 const fs = require('fs');
 
-const rootPath = __dirname + '/..';
+const rootPath = __dirname + '/../..';
 const rowTemplatePath = rootPath + '/templates/elements/row.json';
 
 class RowPanelBuilder {

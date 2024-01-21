@@ -3,7 +3,7 @@ const fs = require('fs');
 const BuilderFactory = require('./BuilderFactory');
 const builderFactory = new BuilderFactory()
 
-const rootPath = __dirname + '/..';
+const rootPath = __dirname + '/../../';
 const dashboardTemplatePath = rootPath + '/templates/dashboards/General.base.json';
 
 const maxWidth = 24;
