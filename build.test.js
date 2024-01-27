@@ -6,9 +6,7 @@ function getDashboard(dashboard) {
     const options = {
         table: "basicrum_friends_webperf_rum_events",
         datasourceUid: "A0Wl5Mc4z",
-        filterMap: {
-            "hosts":"testHosts",
-        },
+        filterMap: {},
     }
 
     builder.build(dashboard, options);

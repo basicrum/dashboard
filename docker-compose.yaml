@@ -12,13 +12,16 @@ services:
       - ./build/dashboards:/etc/grafana/provisioning/dashboards
 
   basicrum_clickhouse_server_build:
-    image: clickhouse/clickhouse-server:22.8
+    image: clickhouse/clickhouse-server:23.6.2.18-alpine
     env_file:
       - .env
     volumes:
       - ./clickhouse/data:/var/lib/clickhouse
       - ./setup/ch/users.d:/etc/clickhouse-server/users.d
       - ./setup/ch/init-schema:/docker-entrypoint-initdb.d
+    ports:
+      - 8153:8123
+      - 9005:9000
 
     ulimits:
       nproc: 65535

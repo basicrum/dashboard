@@ -15,3 +15,4 @@ WHERE
 
 GROUP BY value
 ORDER BY value
+WITH FILL FROM 0 TO 10000 STEP $bucket_size
