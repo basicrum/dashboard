@@ -47,7 +47,7 @@ const params = {
     "nt_first_paint": "1700515101401",
     "nt_red_cnt": "1",
     "nt_nav_type": "0",
-    "u": "https://calendar.perfplanet.com/",
+    "u": "https://www.example.com/",
     "v": "1.737.60",
     "sv": "14",
     "vsm": "p",
@@ -114,7 +114,7 @@ formBody = formBody.join("&");
 
 console.log(formBody);
 
-fetch('https://ocetinssl.basicrum.com/beacon/catcher', {
+fetch('http://localhost:8087/beacon/catcher', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'

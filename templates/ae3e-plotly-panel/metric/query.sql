@@ -14,3 +14,4 @@ WHERE
 
 GROUP BY metric_value
 ORDER BY metric_value
+WITH FILL FROM 0 TO 10000 STEP $bucket_size

@@ -14,7 +14,12 @@
     "paper_bgcolor": "rgba(0, 0, 0, 0)",
     "plot_bgcolor": "rgba(0, 0, 0, 0)",
     "xaxis": {
-        "autorange": true,
-        "tickmode": "array"
+        "autorange": false,
+        "tickmode": "array",
+        "fixedrange": true
+    },
+    "yaxis": {
+        "fixedrange": true,
+        "tickformat": "d"
     }
 }

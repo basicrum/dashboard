@@ -8,7 +8,9 @@ WHERE
     $timeFilter
     AND event_type = 'visit_page'
     AND browser_name = '$$browser_name'
+    AND $$column_name < 12000
     $conditionalTest(AND hostname in($hostname), $hostname)
 
 GROUP BY value
 ORDER BY value
+WITH FILL FROM 0 TO 12000 STEP $bucket_size

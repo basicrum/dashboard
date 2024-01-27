@@ -12,3 +12,4 @@ WHERE
 
 GROUP BY screen_width
 ORDER BY screen_width
+WITH FILL FROM 0 TO 2600 STEP 100

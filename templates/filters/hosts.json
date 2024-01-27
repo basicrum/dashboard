@@ -1,34 +1,19 @@
 {
-    "allValue": "",
-    "current": {
-        "selected": true,
-        "text": ["All"],
-        "value": ["$__all"]
+    "datasource": {
+      "type": "vertamedia-clickhouse-datasource",
+      "uid": "BRUMMUCSTARBUCS"
     },
+    "definition": "select hostname from webperf_rum_hostnames group by hostname\n",
     "hide": 1,
-    "includeAll": true,
-    "label": "Hostname",
+    "includeAll": false,
+    "label": "Host",
     "multi": true,
     "name": "hostname",
-    "options": [
-        {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-        },
-        {
-            "selected": false,
-            "text": "example1.com",
-            "value": "example1.com"
-        },
-        {
-            "selected": false,
-            "text": "example2.com",
-            "value": "example2.com"
-        }
-    ],
-    "query": "example1.com : example1.com, example2.com : example2.com",
-    "queryValue": "",
+    "options": [],
+    "query": "select hostname from webperf_rum_hostnames group by hostname\n",
+    "refresh": 1,
+    "regex": "",
     "skipUrlSync": false,
-    "type": "custom"
-}
+    "sort": 1,
+    "type": "query"
+  }

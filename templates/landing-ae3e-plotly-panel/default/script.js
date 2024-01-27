@@ -4,8 +4,17 @@ var yValue = [];
 var dataFound = true;
 
 try {
-    var xValue = data.series[0].fields[0].values.buffer;
-    var yValue = data.series[0].fields[1].values.buffer;
+    if (data.series[0].fields[0].values.buffer !== undefined
+        && data.series[0].fields[1].values.buffer !== undefined)
+    {
+        xValue = data.series[0].fields[0].values.buffer;
+        yValue = data.series[0].fields[1].values.buffer;
+    }
+    else
+    {
+        xValue = data.series[0].fields[0].values;
+        yValue = data.series[0].fields[1].values; 
+    }
 }
 catch (e) {
     dataFound = false
